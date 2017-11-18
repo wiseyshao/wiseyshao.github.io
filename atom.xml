@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-18T06:45:22.573Z</updated>
+  <updated>2017-11-18T07:36:24.561Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,7 +17,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>guide to using super()</title>
+    <title>(私有变量)Private Variables</title>
+    <link href="http://yoursite.com/2017/11/18/%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F-Private-Variables/"/>
+    <id>http://yoursite.com/2017/11/18/私有变量-Private-Variables/</id>
+    <published>2017-11-18T07:35:29.000Z</published>
+    <updated>2017-11-18T07:36:24.561Z</updated>
+    
+    <content type="html"><![CDATA[<p>“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python. However, there is a convention that is followed by most Python code: a name prefixed with an underscore (e.g. <code>_spam</code>) should be treated as a non-public part of the API (whether it is a function, a method or a data member). It should be considered an implementation detail and subject to change without notice.</p><p>Since there is a valid use-case for class-private members (namely to avoid name clashes of names with names defined by subclasses), there is limited support for such a mechanism, called <em>name mangling</em>. Any identifier of the form <code>__spam</code> (at least two leading underscores, at most one trailing underscore) is textually replaced with <code>_classname__spam</code>, where <code>classname</code> is the current class name with leading underscore(s) stripped. This mangling is done without regard to the syntactic position of the identifier, as long as it occurs within the definition of a class.</p><p>Name mangling is helpful for letting subclasses override methods without breaking intraclass method calls. For example:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Mapping:</div><div class="line">    def __init__(self, iterable):</div><div class="line">        self.items_list = []</div><div class="line">        self.__update(iterable)</div><div class="line"></div><div class="line">    def update(self, iterable):</div><div class="line">        for item in iterable:</div><div class="line">            self.items_list.append(item)</div><div class="line"></div><div class="line">    __update = update   # private copy of original update() method</div><div class="line"></div><div class="line">class MappingSubclass(Mapping):</div><div class="line"></div><div class="line">    def update(self, keys, values):</div><div class="line">        # provides new signature for update()</div><div class="line">        # but does not break __init__()</div><div class="line">        for item in zip(keys, values):</div><div class="line">            self.items_list.append(item)</div></pre></td></tr></table></figure><p>Note that the mangling rules are designed mostly to avoid accidents; it still is possible to access or modify a variable that is considered private. This can even be useful in special circumstances, such as in the debugger.</p><p>Notice that code passed to <code>exec()</code> or <code>eval()</code> does not consider the classname of the invoking class to be the current class; this is similar to the effect of the <code>global</code> statement, the effect of which is likewise restricted to code that is byte-compiled together. The same restriction applies to <code>getattr()</code>, <code>setattr()</code> and <code>delattr()</code>, as well as when referencing <code>__dict__</code> directly.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python. However, there is a convention t
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guide to Using Super()</title>
     <link href="http://yoursite.com/2017/11/18/guide-to-using-super/"/>
     <id>http://yoursite.com/2017/11/18/guide-to-using-super/</id>
     <published>2017-11-18T06:43:20.000Z</published>
@@ -86,7 +109,7 @@
   </entry>
   
   <entry>
-    <title>A little thought about learning Python</title>
+    <title>A Little Thought About Learning Python</title>
     <link href="http://yoursite.com/2017/10/09/A-little-thought-about-learning-Python/"/>
     <id>http://yoursite.com/2017/10/09/A-little-thought-about-learning-Python/</id>
     <published>2017-10-09T02:58:45.000Z</published>
