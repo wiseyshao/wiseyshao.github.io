@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        (私有变量)Private Variables · hongyuan&#39;s blog
+        Creating Virtual Environments · hongyuan&#39;s blog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >Recording the Way</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">(私有变量)Private Variables</a>
+                <a href="#" class="post-name">Creating Virtual Environments</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            (私有变量)Private Variables
+            Creating Virtual Environments
             <!-- 404 -->
             
         </h1>
@@ -126,7 +126,7 @@
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/11/18</span>
+                <span class="post-intro-time">2017/11/19</span>
             </div>
         
     </div>
@@ -134,30 +134,35 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <p><a href="https://docs.python.org/3.6/tutorial/classes.html" target="_blank" rel="external">From：Python Tutorial</a></p>
-<p>“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python. However, there is a convention that is followed by most Python code: a name prefixed with an underscore (e.g. <code>_spam</code>) should be treated as a non-public part of the API (whether it is a function, a method or a data member). It should be considered an implementation detail and subject to change without notice.</p>
-<p>Since there is a valid use-case for class-private members (namely to avoid name clashes of names with names defined by subclasses), there is limited support for such a mechanism, called <em>name mangling</em>. Any identifier of the form <code>__spam</code> (at least two leading underscores, at most one trailing underscore) is textually replaced with <code>_classname__spam</code>, where <code>classname</code> is the current class name with leading underscore(s) stripped. This mangling is done without regard to the syntactic position of the identifier, as long as it occurs within the definition of a class.</p>
-<p>Name mangling is helpful for letting subclasses override methods without breaking intraclass method calls. For example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Mapping:</div><div class="line">    def __init__(self, iterable):</div><div class="line">        self.items_list = []</div><div class="line">        self.__update(iterable)</div><div class="line"></div><div class="line">    def update(self, iterable):</div><div class="line">        for item in iterable:</div><div class="line">            self.items_list.append(item)</div><div class="line"></div><div class="line">    __update = update   # private copy of original update() method</div><div class="line"></div><div class="line">class MappingSubclass(Mapping):</div><div class="line"></div><div class="line">    def update(self, keys, values):</div><div class="line">        # provides new signature for update()</div><div class="line">        # but does not break __init__()</div><div class="line">        for item in zip(keys, values):</div><div class="line">            self.items_list.append(item)</div></pre></td></tr></table></figure>
-<p>Note that the mangling rules are designed mostly to avoid accidents; it still is possible to access or modify a variable that is considered private. This can even be useful in special circumstances, such as in the debugger.</p>
-<p>Notice that code passed to <code>exec()</code> or <code>eval()</code> does not consider the classname of the invoking class to be the current class; this is similar to the effect of the <code>global</code> statement, the effect of which is likewise restricted to code that is byte-compiled together. The same restriction applies to <code>getattr()</code>, <code>setattr()</code> and <code>delattr()</code>, as well as when referencing <code>__dict__</code> directly.</p>
+        <p>To create a virtual environment, decide upon a directory where you want to place it, and run the <a href="../library/venv.html#module-venv"><code>venv</code></a> module as a script with the directory path:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3 -m venv tutorial-env</div></pre></td></tr></table></figure>
+<p>This will create the <code>tutorial-env</code> directory if it doesn’t exist, and also create directories inside it containing a copy of the Python interpreter, the standard library, and various supporting files.</p>
+<p>Once you’ve created a virtual environment, you may activate it.</p>
+<p>On Windows, run:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tutorial-env\Scripts\activate.bat</div></pre></td></tr></table></figure>
+<p>On Unix or MacOS, run:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source tutorial-env/bin/activate</div></pre></td></tr></table></figure>
+<p>(This script is written for the bash shell. If you use the <strong>csh</strong> or <strong>fish</strong> shells, there are alternate <code>activate.csh</code> and <code>activate.fish</code>scripts you should use instead.)</p>
+<p>Activating the virtual environment will change your shell’s prompt to show what virtual environment you’re using, and modify the environment so that running <code>python</code> will get you that particular version and installation of Python. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ source ~/envs/tutorial-env/bin/activate</div><div class="line">(tutorial-env) $ python</div><div class="line">Python 3.5.1 (default, May  6 2016, 10:59:36)</div><div class="line">  ...</div><div class="line">&gt;&gt;&gt; import sys</div><div class="line">&gt;&gt;&gt; sys.path</div><div class="line">[&apos;&apos;, &apos;/usr/local/lib/python35.zip&apos;, ...,</div><div class="line">&apos;~/envs/tutorial-env/lib/python3.5/site-packages&apos;]</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<p><a href="https://docs.python.org/3.6/tutorial/venv.html#managing-packages-with-pip" target="_blank" rel="external">From Python Tutorial</a></p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
             <li class="next">
-                <a href= "/2017/11/19/Creating-Virtual-Environments/" title= Creating Virtual Environments >
+                <a href= "/2017/11/19/Pip-使用方法简要/" title= Pip 使用方法简要 >
                     <span>Next Post</span>
-                    <span>Creating Virtual Environments</span>
+                    <span>Pip 使用方法简要</span>
                 </a>
             </li>
         
         
             <li class="previous">
-                <a href= "/2017/11/18/guide-to-using-super/" title= Guide to Using Super() >
+                <a href= "/2017/11/18/私有变量-Private-Variables/" title= (私有变量)Private Variables >
                     <span>Previous Post</span>
-                    <span>Guide to Using Super()</span>
+                    <span>(私有变量)Private Variables</span>
                 </a>
             </li>
         
