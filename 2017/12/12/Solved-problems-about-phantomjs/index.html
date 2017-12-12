@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        hongyuan&#39;s blog
+        Solved Problems About Phantomjs · hongyuan&#39;s blog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Recording the Way</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Solved Problems About Phantomjs</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Recording the Way</a>
 </header>
@@ -80,86 +91,82 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Solved Problems About Phantomjs
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Python>Python</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/12</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/11/07/2017-11-7/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>2017-11-7</span>
-                    </h2>
-                <div class="abstract-content">
-                    生活体察记录：做一个认真经营的人这是从支付宝客户端看到的一个软文的标题，上面说：一个认真经营自己的人，值得拥有这样的服务。这篇文章我没有看，但是它的标题却深深震撼了我？不禁扪心自问：我是否是一个认真经营自己的人。很惭愧，我的回答是——不是。直到现在为止，我仍然算不是上一个认真经营自己的人，尽管一直有这样的心，但力却并没有用到点子上。回望过去的种种，自己有心真正努力过的也就是高中的两次成功的经历：一次是第二次高一上学期，另一次是高四。这两次的努力很有成效，也取得了很显著的变化。因为这两次的努力都放在了点子上，尤其是高四的一年，找到了学习的窍门，即知识要系统化，尤其是在第一次高考的惨败之后学...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 生活体察记录>生活体察记录</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/07</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/08/2017-10-8/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>2017-10-8</span>
-                    </h2>
-                <div class="abstract-content">
-                    人长大的两个思想转变特点：开始把过去视之为玩具的东西作为工具来对待。
-做事情的参考不再是喜欢不喜欢，而是需要不需要。而这时其实一个人会逐渐明白，其实没有所谓的喜欢和不喜欢，两者之间事实上没有本质的界限，只不过是人们为了逃避某些东西而产生的对比情绪，本质上其实是自欺欺人而已，可悲的是，很多人直到老去都没想清楚这个道理。真正有意义的参考选择是你是否这样或者那样的需要，而是否有需要的唯一判断根据是，如果你得到或者达到了，对你是否有直接的显著助益。
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>该解决方案已经在Ubuntu中验证成功！</p>
+<p>For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a firewall, you’ll get <code>WebDriverException(&quot;Can not connect to GhostDriver&quot;)</code>.</p>
+<p>To fix:</p>
+<ol>
+<li>Open a port.</li>
+</ol>
+<p><code>sudo iptables -A INPUT -s 127.0.0.1 -p tcp --dport 65000 -j ACCEPT</code></p>
+<ol>
+<li>Create a PhantomJS driver that uses that port</li>
+</ol>
+<p><code>driver = webdriver.PhantomJS(executable_path=&#39;/usr/local/bin/phantomjs&#39;, port=65000)</code></p>
 
-已经有两三没有做文字记录，也许是前两天写的有些多，写伤了？呵呵，这当然是个借口。不过今天在开始动笔之前，也是磨蹭了十来分钟。有那么一种抗拒的情绪在...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/11/19/Pip-使用方法简要/" title= Pip 使用方法简要 >
+                    <span>Previous Post</span>
+                    <span>Pip 使用方法简要</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 生活体察记录>生活体察记录</a>
     
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/08</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+    <!--PC版-->
+
     
 </main>
             <!-- profile -->
@@ -203,6 +210,13 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            CATALOG
+        </div>
+        
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

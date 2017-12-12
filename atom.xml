@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-19T13:39:55.450Z</updated>
+  <updated>2017-12-12T04:07:24.955Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Solved Problems About Phantomjs</title>
+    <link href="http://yoursite.com/2017/12/12/Solved-problems-about-phantomjs/"/>
+    <id>http://yoursite.com/2017/12/12/Solved-problems-about-phantomjs/</id>
+    <published>2017-12-12T04:06:20.000Z</published>
+    <updated>2017-12-12T04:07:24.955Z</updated>
+    
+    <content type="html"><![CDATA[<p>该解决方案已经在Ubuntu中验证成功！</p><p>For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a firewall, you’ll get <code>WebDriverException(&quot;Can not connect to GhostDriver&quot;)</code>.</p><p>To fix:</p><ol><li>Open a port.</li></ol><p><code>sudo iptables -A INPUT -s 127.0.0.1 -p tcp --dport 65000 -j ACCEPT</code></p><ol><li>Create a PhantomJS driver that uses that port</li></ol><p><code>driver = webdriver.PhantomJS(executable_path=&#39;/usr/local/bin/phantomjs&#39;, port=65000)</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;该解决方案已经在Ubuntu中验证成功！&lt;/p&gt;
+&lt;p&gt;For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a fire
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Pip 使用方法简要</title>
