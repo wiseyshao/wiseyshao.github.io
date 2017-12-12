@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-12T04:07:24.955Z</updated>
+  <updated>2017-12-12T06:55:45.972Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2017/12/12/Solved-problems-about-phantomjs/"/>
     <id>http://yoursite.com/2017/12/12/Solved-problems-about-phantomjs/</id>
     <published>2017-12-12T04:06:20.000Z</published>
-    <updated>2017-12-12T04:07:24.955Z</updated>
+    <updated>2017-12-12T06:55:45.972Z</updated>
     
-    <content type="html"><![CDATA[<p>该解决方案已经在Ubuntu中验证成功！</p><p>For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a firewall, you’ll get <code>WebDriverException(&quot;Can not connect to GhostDriver&quot;)</code>.</p><p>To fix:</p><ol><li>Open a port.</li></ol><p><code>sudo iptables -A INPUT -s 127.0.0.1 -p tcp --dport 65000 -j ACCEPT</code></p><ol><li>Create a PhantomJS driver that uses that port</li></ol><p><code>driver = webdriver.PhantomJS(executable_path=&#39;/usr/local/bin/phantomjs&#39;, port=65000)</code></p>]]></content>
+    <content type="html"><![CDATA[<p>该解决方案已经在Ubuntu中验证成功！</p><p>For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a firewall, you’ll get <code>WebDriverException(&quot;Can not connect to GhostDriver&quot;)</code>.</p><p>To fix:</p><ol><li>Open a port.</li></ol><p><code>sudo iptables -A INPUT -s 127.0.0.1 -p tcp --dport 65000 -j ACCEPT</code></p><ol><li>Create a PhantomJS driver that uses that port</li></ol><p><code>driver = webdriver.PhantomJS(executable_path=&#39;/usr/local/bin/phantomjs&#39;, port=65000)</code></p><hr><p>但以上解决方法不足以解决Mac出现的问题，即：Cannot connect the service /usr/local/bin/phantomjs.</p><p>那么如何解决呢？</p><p>经过花费近四五个小时的时间进行搜索、尝试、在搜索、再尝试。。。。。，最终确定问题也许并非出在phantomjs上，而是selenium。使用 <code>pip check selenium</code> 查到缺少一个必需的模块 <code>tornado</code>，于是 <code>pip install tornado</code> ,再次尝试，问题解决。</p>]]></content>
     
     <summary type="html">
     
