@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        CSS Selectors概览 · hongyuan&#39;s blog
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- 提前加载place holder  -->
+    <style>
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url('/font/Oswald-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('/font/Source Sans Pro.woff'),
+            url('/font/Source Sans Pro.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Source Code Pro';
+            src: url('/font/SourceCodePro-Regular.ttf.woff'),
+            url('/font/SourceCodePro-Regular.ttf.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        
+        .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0px;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        99% {
+            transform: translate3d(0, 0, 0);
+        }
+        99.1% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(-226px, 0, 0);
+        }
+    }
+    </style>
+    <link rel="stylesheet" href = /css/style.css?v=20171005 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Recording the Way</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">CSS Selectors概览</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Recording the Way</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            CSS Selectors概览
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+        </p>
+        <!-- 404 -->
+        
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = CSS, Python, CSS Selectors>CSS, Python, CSS Selectors</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/16</span>
+            </div>
+        
+    </div>
+</div>
+        <div class="container">
+            <main class="main post-page">
+    <article class="article-entry">
+        <table>
+<thead>
+<tr>
+<th>Selector</th>
+<th>Example</th>
+<th>Example description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_class.asp" target="_blank" rel="external">.<em>class</em></a></td>
+<td>.intro</td>
+<td>Selects all elements with class=”intro”</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_id.asp" target="_blank" rel="external">#<em>id</em></a></td>
+<td>#firstname</td>
+<td>Selects the element with id=”firstname”</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_all.asp" target="_blank" rel="external">*</a></td>
+<td>*</td>
+<td>Selects all elements</td>
+</tr>
+<tr>
+<td><em>element</em></td>
+<td>p</td>
+<td>Selects all <p> elements</p></td>
+</tr>
+<tr>
+<td><em>element,element</em></td>
+<td>div, p</td>
+<td>Selects all <div> elements and all <p> elements</p></div></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_element_element.asp" target="_blank" rel="external"><em>element</em> <em>element</em></a></td>
+<td>div p</td>
+<td>Selects all <p> elements inside <div> elements</div></p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_element_gt.asp" target="_blank" rel="external"><em>element</em>&gt;<em>element</em></a></td>
+<td>div &gt; p</td>
+<td>Selects all <p> elements where the parent is a <div> element</div></p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_element_pluss.asp" target="_blank" rel="external"><em>element</em>+<em>element</em></a></td>
+<td>div + p</td>
+<td>Selects all <p> elements that are placed immediately after <div> elements</div></p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_gen_sibling.asp" target="_blank" rel="external"><em>element1</em>~<em>element2</em></a></td>
+<td>p ~ ul</td>
+<td>Selects every <ul> element that are preceded by a <p> element</p></ul></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_attribute.asp" target="_blank" rel="external">[<em>attribute</em>]</a></td>
+<td>[target]</td>
+<td>Selects all elements with a target attribute</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_attribute_value.asp" target="_blank" rel="external">[<em>attribute</em>=<em>value</em>]</a></td>
+<td>[target=_blank]</td>
+<td>Selects all elements with target=”_blank”</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_attribute_value_contains.asp" target="_blank" rel="external">[<em>attribute</em>~=<em>value</em>]</a></td>
+<td>[title~=flower]</td>
+<td>Selects all elements with a title attribute containing the word “flower”</td>
+</tr>
+<tr>
+<td>[[<em>attribute</em>\</td>
+<td>=<em>value</em>]](<a href="https://www.w3schools.com/cssref/sel_attribute_value_lang.asp" target="_blank" rel="external">https://www.w3schools.com/cssref/sel_attribute_value_lang.asp</a>)</td>
+<td>[lang\</td>
+<td>=en]</td>
+<td>Selects all elements with a lang attribute value starting with “en”</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_attr_begin.asp" target="_blank" rel="external">[<em>attribute</em>^=<em>value</em>]</a></td>
+<td>a[href^=”https”]</td>
+<td>Selects every <a> element whose href attribute value begins with “https”</a></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_attr_end.asp" target="_blank" rel="external">[<em>attribute</em>$=<em>value</em>]</a></td>
+<td>a[href$=”.pdf”]</td>
+<td>Selects every <a> element whose href attribute value ends with “.pdf”</a></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_attr_contain.asp" target="_blank" rel="external">[<em>attribute**=</em>value*]</a></td>
+<td>a[href*=”w3schools”]</td>
+<td>Selects every <a> element whose href attribute value contains the substring “w3schools”</a></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_active.asp" target="_blank" rel="external">:active</a></td>
+<td>a:active</td>
+<td>Selects the active link</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_after.asp" target="_blank" rel="external">::after</a></td>
+<td>p::after</td>
+<td>Insert something after the content of each <p> element</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_before.asp" target="_blank" rel="external">::before</a></td>
+<td>p::before</td>
+<td>Insert something before the content of each <p> element</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_checked.asp" target="_blank" rel="external">:checked</a></td>
+<td>input:checked</td>
+<td>Selects every checked <input> element</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_disabled.asp" target="_blank" rel="external">:disabled</a></td>
+<td>input:disabled</td>
+<td>Selects every disabled <input> element</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_empty.asp" target="_blank" rel="external">:empty</a></td>
+<td>p:empty</td>
+<td>Selects every <p> element that has no children (including text nodes)</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_enabled.asp" target="_blank" rel="external">:enabled</a></td>
+<td>input:enabled</td>
+<td>Selects every enabled <input> element</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_firstchild.asp" target="_blank" rel="external">:first-child</a></td>
+<td>p:first-child</td>
+<td>Selects every <p> element that is the first child of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_firstletter.asp" target="_blank" rel="external">::first-letter</a></td>
+<td>p::first-letter</td>
+<td>Selects the first letter of every <p> element</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_firstline.asp" target="_blank" rel="external">::first-line</a></td>
+<td>p::first-line</td>
+<td>Selects the first line of every <p> element</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_first-of-type.asp" target="_blank" rel="external">:first-of-type</a></td>
+<td>p:first-of-type</td>
+<td>Selects every <p> element that is the first </p><p> element of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_focus.asp" target="_blank" rel="external">:focus</a></td>
+<td>input:focus</td>
+<td>Selects the input element which has focus</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_hover.asp" target="_blank" rel="external">:hover</a></td>
+<td>a:hover</td>
+<td>Selects links on mouse over</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_in-range.asp" target="_blank" rel="external">:in-range</a></td>
+<td>input:in-range</td>
+<td>Selects input elements with a value within a specified range</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_invalid.asp" target="_blank" rel="external">:invalid</a></td>
+<td>input:invalid</td>
+<td>Selects all input elements with an invalid value</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_lang.asp" target="_blank" rel="external">:lang(<em>language</em>)</a></td>
+<td>p:lang(it)</td>
+<td>Selects every <p> element with a lang attribute equal to “it” (Italian)</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_last-child.asp" target="_blank" rel="external">:last-child</a></td>
+<td>p:last-child</td>
+<td>Selects every <p> element that is the last child of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_last-of-type.asp" target="_blank" rel="external">:last-of-type</a></td>
+<td>p:last-of-type</td>
+<td>Selects every <p> element that is the last </p><p> element of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_link.asp" target="_blank" rel="external">:link</a></td>
+<td>a:link</td>
+<td>Selects all unvisited links</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_not.asp" target="_blank" rel="external">:not(<em>selector</em>)</a></td>
+<td>:not(p)</td>
+<td>Selects every element that is not a <p> element</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_nth-child.asp" target="_blank" rel="external">:nth-child(<em>n</em>)</a></td>
+<td>p:nth-child(2)</td>
+<td>Selects every <p> element that is the second child of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_nth-last-child.asp" target="_blank" rel="external">:nth-last-child(<em>n</em>)</a></td>
+<td>p:nth-last-child(2)</td>
+<td>Selects every <p> element that is the second child of its parent, counting from the last child</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_nth-last-of-type.asp" target="_blank" rel="external">:nth-last-of-type(<em>n</em>)</a></td>
+<td>p:nth-last-of-type(2)</td>
+<td>Selects every <p> element that is the second </p><p> element of its parent, counting from the last child</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_nth-of-type.asp" target="_blank" rel="external">:nth-of-type(<em>n</em>)</a></td>
+<td>p:nth-of-type(2)</td>
+<td>Selects every <p> element that is the second </p><p> element of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_only-of-type.asp" target="_blank" rel="external">:only-of-type</a></td>
+<td>p:only-of-type</td>
+<td>Selects every <p> element that is the only </p><p> element of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_only-child.asp" target="_blank" rel="external">:only-child</a></td>
+<td>p:only-child</td>
+<td>Selects every <p> element that is the only child of its parent</p></td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_optional.asp" target="_blank" rel="external">:optional</a></td>
+<td>input:optional</td>
+<td>Selects input elements with no “required” attribute</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_out-of-range.asp" target="_blank" rel="external">:out-of-range</a></td>
+<td>input:out-of-range</td>
+<td>Selects input elements with a value outside a specified range</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_read-only.asp" target="_blank" rel="external">:read-only</a></td>
+<td>input:read-only</td>
+<td>Selects input elements with the “readonly” attribute specified</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_read-write.asp" target="_blank" rel="external">:read-write</a></td>
+<td>input:read-write</td>
+<td>Selects input elements with the “readonly” attribute NOT specified</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_required.asp" target="_blank" rel="external">:required</a></td>
+<td>input:required</td>
+<td>Selects input elements with the “required” attribute specified</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_root.asp" target="_blank" rel="external">:root</a></td>
+<td>:root</td>
+<td>Selects the document’s root element</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_selection.asp" target="_blank" rel="external">::selection</a></td>
+<td>::selection</td>
+<td>Selects the portion of an element that is selected by a user</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_target.asp" target="_blank" rel="external">:target</a></td>
+<td>#news:target</td>
+<td>Selects the current active #news element (clicked on a URL containing that anchor name)</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_valid.asp" target="_blank" rel="external">:valid</a></td>
+<td>input:valid</td>
+<td>Selects all input elements with a valid value</td>
+</tr>
+<tr>
+<td><a href="https://www.w3schools.com/cssref/sel_visited.asp" target="_blank" rel="external">:visited</a></td>
+<td>a:visited</td>
+<td>Selects all visited links</td>
+</tr>
+</tbody>
+</table>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/12/Solved-problems-about-phantomjs/" title= Solved Problems About Phantomjs >
+                    <span>Previous Post</span>
+                    <span>Solved Problems About Phantomjs</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="emailto:wiseyshao@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/wiseyshao" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            CATALOG
+        </div>
+        
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 11 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/16</span><a class="archive-post-title" href= "/2017/12/16/CSS-Selectors概览/" >CSS Selectors概览</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/Solved-problems-about-phantomjs/" >Solved Problems About Phantomjs</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2017/11/19/Pip-使用方法简要/" >Pip 使用方法简要</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2017/11/19/Creating-Virtual-Environments/" >Creating Virtual Environments</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2017/11/18/私有变量-Private-Variables/" >(私有变量)Private Variables</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2017/11/18/guide-to-using-super/" >Guide to Using Super()</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2017/11/12/感伤而活/" >感伤而活</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2017/11/07/2017-11-7/" >2017-11-7</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/09</span><a class="archive-post-title" href= "/2017/10/09/A-little-thought-about-learning-Python/" >A Little Thought About Learning Python</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2017/10/08/2017-10-8/" >2017-10-8</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2017/10/08/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">生活体察记录</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">CSS, Python, CSS Selectors</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">生活体察记录, Python</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Python</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">感悟</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
