@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-16T04:13:02.441Z</updated>
+  <updated>2017-12-16T04:18:12.544Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>“Linux下安装Qt4.8”</title>
+    <link href="http://yoursite.com/2017/12/16/%E2%80%9CLinux%E4%B8%8B%E5%AE%89%E8%A3%85Qt4-8%E2%80%9D/"/>
+    <id>http://yoursite.com/2017/12/16/“Linux下安装Qt4-8”/</id>
+    <published>2017-12-16T04:15:54.000Z</published>
+    <updated>2017-12-16T04:18:12.544Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ubuntu下使用atp-get安装，方法如下（未验证）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install qt4-dev-tools #开发包 　　</div><div class="line">sudo apt-get install qtcreator #IDE　　</div><div class="line">sudo apt-get install qt4-doc #开发帮助文档 　　</div><div class="line">sudo apt-get install qt4-qtconfig #配置工具 　　</div><div class="line">sudo apt-get install qt4-demos #DEMO源码  QT</div></pre></td></tr></table></figure><p><strong>But以上代码中有些为失效状态，考虑用以下命令替代：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ubuntu下安装Qt 复制代码 代码如下: $ sudo apt-get install qt4-dev-tools qt4-doc qt4-qtconfig qt4-demos qt4-designer 注：qt4-dev-tools 包含了Qt Assistant及Qt Linguist等工具，因此不需要单独安装这两个工具。</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Ubuntu下使用atp-get安装，方法如下（未验证）&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="Linux, Python, Qt" scheme="http://yoursite.com/tags/Linux-Python-Qt/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS Selectors概览</title>
