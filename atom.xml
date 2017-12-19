@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-19T10:38:38.804Z</updated>
+  <updated>2017-12-19T10:43:40.410Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Generating a New SSH Key and Adding It to the Ssh-Agent</title>
+    <link href="http://yoursite.com/2017/12/19/Generating-a-new-SSH-key-and-adding-it-to-the-ssh-agent/"/>
+    <id>http://yoursite.com/2017/12/19/Generating-a-new-SSH-key-and-adding-it-to-the-ssh-agent/</id>
+    <published>2017-12-19T10:41:55.000Z</published>
+    <updated>2017-12-19T10:43:40.410Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Generating-a-new-SSH-key"><a href="#Generating-a-new-SSH-key" class="headerlink" title="Generating a new SSH key"></a>Generating a new SSH key</h3><ol><li><p>Open Terminal.</p></li><li><p>Paste the text below, substituting in your GitHub email address.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure><p>This creates a new ssh key, using the provided email as a label.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Generating public/private rsa key pair.</div></pre></td></tr></table></figure></li><li><p>When you’re prompted to “Enter a file in which to save the key,” press Enter. This accepts the default file location.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</div></pre></td></tr></table></figure></li><li><p>At the prompt, type a secure passphrase. For more information, see</p></li></ol><p>   “Working with SSH key passphrases”</p><p>   .</p>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</div><div class="line">Enter same passphrase again: [Type passphrase again]</div></pre></td></tr></table></figure><h3 id="Adding-your-SSH-key-to-the-ssh-agent"><a href="#Adding-your-SSH-key-to-the-ssh-agent" class="headerlink" title="Adding your SSH key to the ssh-agent"></a>Adding your SSH key to the ssh-agent</h3><p>Before adding a new SSH key to the ssh-agent to manage your keys, you should have <a href="https://help.github.com/articles/checking-for-existing-ssh-keys" target="_blank" rel="external">checked for existing SSH keys</a> and <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="external">generated a new SSH key</a>. When adding your SSH key to the agent, use the default macOS <code>ssh-add</code> command, and not an application installed by <a href="https://www.macports.org/" target="_blank" rel="external">macports</a>, <a href="http://brew.sh/" target="_blank" rel="external">homebrew</a>, or some other external source.</p><ol><li><p>Start the ssh-agent in the background.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval &quot;$(ssh-agent -s)&quot;</div><div class="line">Agent pid 59566</div></pre></td></tr></table></figure></li><li><p>If you’re using macOS Sierra 10.12.2 or later, you will need to modify your <code>~/.ssh/config</code> file to automatically load keys into the ssh-agent and store passphrases in your keychain.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Host *</div><div class="line"> AddKeysToAgent yes</div><div class="line"> UseKeychain yes</div><div class="line"> IdentityFile ~/.ssh/id_rsa</div></pre></td></tr></table></figure></li><li><p>Add your SSH private key to the ssh-agent and store your passphrase in the keychain. If you created your key with a different name, or if you are adding an existing key that has a different name, replace <em>id_rsa</em> in the command with the name of your private key file.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add -K ~/.ssh/id_rsa</div></pre></td></tr></table></figure></li><li><p><a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="external">Add the SSH key to your GitHub account</a>.</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Generating-a-new-SSH-key&quot;&gt;&lt;a href=&quot;#Generating-a-new-SSH-key&quot; class=&quot;headerlink&quot; title=&quot;Generating a new SSH key&quot;&gt;&lt;/a&gt;Generating a n
+      
+    
+    </summary>
+    
+    
+      <category term="github, key" scheme="http://yoursite.com/tags/github-key/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac命令行安装Virtualbox &amp;&amp; Vagrant</title>
