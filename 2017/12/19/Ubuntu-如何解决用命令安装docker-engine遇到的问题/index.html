@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        hongyuan&#39;s blog
+        Ubuntu:如何解决用命令安装docker-Engine遇到的问题 · hongyuan&#39;s blog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Recording the Way</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Ubuntu:如何解决用命令安装docker-Engine遇到的问题</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Recording the Way</a>
 </header>
@@ -80,58 +91,79 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Ubuntu:如何解决用命令安装docker-Engine遇到的问题
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Ubuntu, Python, Dcoker>Ubuntu, Python, Dcoker</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/19</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>在Ubuntu上用terminal安装Docker-engine时会出现以下问题：</p>
+<figure class="highlight plain"><figcaption><span>following packages have unmet dependencies: ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```docker-engine :</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```libsystemd-journal0 (&gt;= 201) but it is not installable</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>aufs-tools but it is not going to be installed                 ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```Recommends: cgroupfs-mount but it is not going to be installed or cgroup-lite but it is not going to be installed</div></pre></td></tr></table></figure>
+<p><code>E: Unable to correct problems, you have held broken packages.</code></p>
+<p>意思是说要安装docker-engine还需要几个缺少的依赖包，除了<strong>libsystemd-journal0</strong>用 <code>sudo apt install</code> 无法安装，其他的都可以顺利安装。那么，如何解决剩下的那个呢？下面是github上给出的方法，已经试用OK，分享出来：</p>
+<h3 id="jordancrawfordnz-commented："><a href="#jordancrawfordnz-commented：" class="headerlink" title="jordancrawfordnz commented："></a><strong>jordancrawfordnz </strong>commented：</h3><p>I seem to have resolved this by putting <code>deb http://cz.archive.ubuntu.com/ubuntu trusty main</code> in <code>/etc/apt/sources.list</code> (as mentioned on the Ubuntu site at <a href="http://packages.ubuntu.com/trusty/i386/libsystemd-journal0/download" target="_blank" rel="external">http://packages.ubuntu.com/trusty/i386/libsystemd-journal0/download</a>), then doing <code>apt-get update</code>, <code>apt-get install libsystemd-journal0</code> and <code>apt-get install docker-engine</code>.</p>
+<p>这是链接地址：<a href="https://github.com/moby/moby/issues/20698" target="_blank" rel="external">link</a></p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/18/数据库SQL简话/" title= 数据库SQL简话 >
+                    <span>Previous Post</span>
+                    <span>数据库SQL简话</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/16/“Linux下安装Qt4-8”/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>“Linux下安装Qt4.8”</span>
-                    </h2>
-                <div class="abstract-content">
-                    Ubuntu下使用atp-get安装，方法如下（未验证）
-12345sudo apt-get install qt4-dev-tools #开发包 　　sudo apt-get install qtcreator #IDE　　sudo apt-get install qt4-doc #开发帮助文档 　　sudo apt-get install qt4-qtconfig #配置工具 　　sudo apt-get install qt4-demos #DEMO源码  QT
-But以上代码中有些为失效状态，考虑用以下命令替代：
-1Ubuntu下安装Qt 复制代码 代码如下: $ sudo ap...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Linux, Python, Qt>Linux, Python, Qt</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/16</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+    <!--PC版-->
+
     
 </main>
             <!-- profile -->
@@ -175,6 +207,13 @@ But以上代码中有些为失效状态，考虑用以下命令替代：
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            CATALOG
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jordancrawfordnz-commented："><span class="toc-number">1.</span> <span class="toc-text">jordancrawfordnz commented：</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

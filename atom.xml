@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-18T08:22:29.947Z</updated>
+  <updated>2017-12-19T09:24:48.349Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu:如何解决用命令安装docker-Engine遇到的问题</title>
+    <link href="http://yoursite.com/2017/12/19/Ubuntu-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%94%A8%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85docker-engine%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/12/19/Ubuntu-如何解决用命令安装docker-engine遇到的问题/</id>
+    <published>2017-12-19T09:14:26.000Z</published>
+    <updated>2017-12-19T09:24:48.349Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Ubuntu上用terminal安装Docker-engine时会出现以下问题：</p><figure class="highlight plain"><figcaption><span>following packages have unmet dependencies: ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```docker-engine :</div></pre></td></tr></table></figure><figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```libsystemd-journal0 (&gt;= 201) but it is not installable</div></pre></td></tr></table></figure><figure class="highlight plain"><figcaption><span>aufs-tools but it is not going to be installed                 ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```Recommends: cgroupfs-mount but it is not going to be installed or cgroup-lite but it is not going to be installed</div></pre></td></tr></table></figure><p><code>E: Unable to correct problems, you have held broken packages.</code></p><p>意思是说要安装docker-engine还需要几个缺少的依赖包，除了<strong>libsystemd-journal0</strong>用 <code>sudo apt install</code> 无法安装，其他的都可以顺利安装。那么，如何解决剩下的那个呢？下面是github上给出的方法，已经试用OK，分享出来：</p><h3 id="jordancrawfordnz-commented："><a href="#jordancrawfordnz-commented：" class="headerlink" title="jordancrawfordnz commented："></a><strong>jordancrawfordnz </strong>commented：</h3><p>I seem to have resolved this by putting <code>deb http://cz.archive.ubuntu.com/ubuntu trusty main</code> in <code>/etc/apt/sources.list</code> (as mentioned on the Ubuntu site at <a href="http://packages.ubuntu.com/trusty/i386/libsystemd-journal0/download" target="_blank" rel="external">http://packages.ubuntu.com/trusty/i386/libsystemd-journal0/download</a>), then doing <code>apt-get update</code>, <code>apt-get install libsystemd-journal0</code> and <code>apt-get install docker-engine</code>.</p><p>这是链接地址：<a href="https://github.com/moby/moby/issues/20698" target="_blank" rel="external">link</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在Ubuntu上用terminal安装Docker-engine时会出现以下问题：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;following packages have unmet dependencie
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu, Python, Dcoker" scheme="http://yoursite.com/tags/Ubuntu-Python-Dcoker/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库SQL简话</title>
