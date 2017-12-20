@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-19T10:43:40.410Z</updated>
+  <updated>2017-12-20T03:39:14.940Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu: Install Sublime</title>
+    <link href="http://yoursite.com/2017/12/20/Ubuntu-install-sublime/"/>
+    <id>http://yoursite.com/2017/12/20/Ubuntu-install-sublime/</id>
+    <published>2017-12-20T03:37:45.000Z</published>
+    <updated>2017-12-20T03:39:14.940Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Install-Sublime-Text-3-via-the-official-apt-repository"><a href="#Install-Sublime-Text-3-via-the-official-apt-repository" class="headerlink" title="Install Sublime Text 3 via the official apt repository:"></a>Install Sublime Text 3 via the official apt repository:</h4><p><strong>1.</strong> Open terminal via Ctrl+Alt+T or by searching for “Terminal” from desktop app launcher. When it opens, run command to install the key:</p><p><code>wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -</code></p><p><img src="http://tipsonubuntu.com/wp-content/uploads/2017/05/sublimetext-apt-key-610x86.jpg" alt="sublimetext-apt-key"></p><p><strong>2.</strong> Then add the apt repository via command:</p><p><code>echo &quot;deb https://download.sublimetext.com/ apt/stable/&quot; | sudo tee /etc/apt/sources.list.d/sublime-text.list</code></p><p><img src="http://tipsonubuntu.com/wp-content/uploads/2017/05/sublime-text-apt-repo-610x93.jpg" alt="sublime text apt repository"></p><p><strong>3.</strong> Finally check updates and install <strong>sublime-text</strong> via your system package manager:</p><p><img src="http://tipsonubuntu.com/wp-content/uploads/2017/05/install-sublime-text-400x269.jpg" alt="install-sublime-text"></p><p>or by running commands:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line"></div><div class="line">sudo apt-get install sublime-text</div></pre></td></tr></table></figure><p>Once installed, launch it from your desktop app launcher and enjoy!</p><h4 id="Uninstall"><a href="#Uninstall" class="headerlink" title="Uninstall:"></a>Uninstall:</h4><p>To uninstall the editor, either use your system package manager or simply run command:</p><p><code>sudo apt-get remove sublime-text &amp;&amp; sudo apt-get autoremove</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Install-Sublime-Text-3-via-the-official-apt-repository&quot;&gt;&lt;a href=&quot;#Install-Sublime-Text-3-via-the-official-apt-repository&quot; class=&quot;hea
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu, Linux, Sublime" scheme="http://yoursite.com/tags/Ubuntu-Linux-Sublime/"/>
+    
+  </entry>
   
   <entry>
     <title>Generating a New SSH Key and Adding It to the Ssh-Agent</title>
