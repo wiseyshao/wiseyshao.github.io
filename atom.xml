@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-20T03:39:14.940Z</updated>
+  <updated>2017-12-21T05:40:00.231Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux打开文本文件</title>
+    <link href="http://yoursite.com/2017/12/21/Linux%E6%89%93%E5%BC%80%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/12/21/Linux打开文本文件/</id>
+    <published>2017-12-21T05:39:24.000Z</published>
+    <updated>2017-12-21T05:40:00.231Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Linux打开文件夹命令："><a href="#Linux打开文件夹命令：" class="headerlink" title="Linux打开文件夹命令："></a>Linux打开文件夹命令：</h2><p>gnome-open /etc</p><p>ubuntu中  nautilus /etc</p><p>Linux打开文件或者网址命令：</p><p>xdg-open { file | URL }</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Linux打开文件夹命令：&quot;&gt;&lt;a href=&quot;#Linux打开文件夹命令：&quot; class=&quot;headerlink&quot; title=&quot;Linux打开文件夹命令：&quot;&gt;&lt;/a&gt;Linux打开文件夹命令：&lt;/h2&gt;&lt;p&gt;gnome-open /etc&lt;/p&gt;
+&lt;p&gt;ubu
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于学习编程的一些建议</title>
+    <link href="http://yoursite.com/2017/12/21/%E5%85%B3%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE/"/>
+    <id>http://yoursite.com/2017/12/21/关于学习编程的一些建议/</id>
+    <published>2017-12-21T05:37:00.000Z</published>
+    <updated>2017-12-21T05:38:42.116Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="编程提高方法："><a href="#编程提高方法：" class="headerlink" title="编程提高方法："></a><strong>编程提高方法：</strong></h2><ol><li>不断练习。</li><li>抓大放小。（抓住那些感兴，趣能够推动编程水平真正有用的东西，放掉那些可能会纠缠住我们的细节问题）（不只是学习knowledge，更重要的是skills）</li><li>多练简单题。（从模仿开始，沉住气）</li><li>选最薄的参考书。</li><li>第一位问题是如何解决问题，而不是怎么快速解决。</li></ol><p>今后的写作要完全按照金字塔的形式，先总后分来进行。先有结构，程序要先有轮廓，无论是在看程序还是在写程序</p><p>结构化程序设计：由大到小，由粗到精，由抽象到具体</p><p>程序结构：</p><p>程序由若干模块组成</p><p>模块之内“高内聚”</p><p>模块之间“低耦合”</p><p>勤加练习，多做简单题</p><p>数据部分、运算部分、控制部分、传输部分</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;编程提高方法：&quot;&gt;&lt;a href=&quot;#编程提高方法：&quot; class=&quot;headerlink&quot; title=&quot;编程提高方法：&quot;&gt;&lt;/a&gt;&lt;strong&gt;编程提高方法：&lt;/strong&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;不断练习。&lt;/li&gt;
+&lt;li&gt;抓大放小。（抓住那些感兴
+      
+    
+    </summary>
+    
+    
+      <category term="编程, 建议" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B-%E5%BB%BA%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu: Install Sublime</title>
