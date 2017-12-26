@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-21T05:40:00.231Z</updated>
+  <updated>2017-12-26T06:25:22.908Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Differences of JavaScript With Python</title>
+    <link href="http://yoursite.com/2017/12/26/Differences-of-JavaScript-with-Python/"/>
+    <id>http://yoursite.com/2017/12/26/Differences-of-JavaScript-with-Python/</id>
+    <published>2017-12-26T02:59:09.000Z</published>
+    <updated>2017-12-26T06:25:22.908Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Expecting-Loose-Comparison"><a href="#Expecting-Loose-Comparison" class="headerlink" title="Expecting Loose Comparison"></a>Expecting Loose Comparison</h2><p>In regular comparison, data type does not matter. This if statement returns true:</p><p>var x = 10;<br>var y = “10”;<br>if (x == y)</p><p>In strict comparison, data type does matter. This if statement returns false:</p><p>var x = 10;<br>var y = “10”;<br>if (x === y)</p><p>It is a common mistake to forget that switch statements use strict comparison:</p><p>This case switch will display an alert:</p><p>var x = 10;<br>switch(x) {<br>​    case 10: alert(“Hello”);<br>}</p><p>This case switch will not display an alert:</p><p>var x = 10;<br>switch(x) {<br>​    case “10”: alert(“Hello”);<br>}</p><h2 id="Misunderstanding-Floats"><a href="#Misunderstanding-Floats" class="headerlink" title="Misunderstanding Floats"></a>Misunderstanding Floats</h2><p>All numbers in JavaScript are stored as 64-bits <strong>Floating point numbers</strong> (Floats).</p><p>All programming languages, including JavaScript, have difficulties with precise floating point values:</p><p>var x = 0.1;<br>var y = 0.2;<br>var z = x + y            // the result in z will not be 0.3</p><p>To solve the problem above, it helps to multiply and divide:</p><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>var z = (x <em> 10 + y </em> 10) / 10;       // z will be 0.3      —- (same with python)</p><h2 id="closing-ending-statements-with-semicolon-is-optional-in-JavaScript"><a href="#closing-ending-statements-with-semicolon-is-optional-in-JavaScript" class="headerlink" title="closing (ending) statements with semicolon is optional in JavaScript."></a>closing (ending) statements with semicolon is optional in JavaScript.</h2><h2 id="Accessing-Arrays-with-Named-Indexes"><a href="#Accessing-Arrays-with-Named-Indexes" class="headerlink" title="Accessing Arrays with Named Indexes"></a>Accessing Arrays with Named Indexes</h2><p>Many programming languages support arrays with named indexes.</p><p>Arrays with named indexes are called associative arrays (or hashes).</p><p>JavaScript does <strong>not</strong> support arrays with named indexes.</p><p>In JavaScript, <strong>arrays</strong> use <strong>numbered indexes</strong>:  </p><p>In JavaScript, <strong>objects</strong> use <strong>named indexes</strong>.</p><h2 id="Undefined-is-Not-Null"><a href="#Undefined-is-Not-Null" class="headerlink" title="Undefined is Not Null"></a>Undefined is Not Null</h2><p>With JavaScript, <strong>null</strong> is for objects, <strong>undefined</strong> is for variables, properties, and methods.</p><p>To be null, an object has to be defined, otherwise it will be undefined.</p><h2 id="Expecting-Block-Level-Scope"><a href="#Expecting-Block-Level-Scope" class="headerlink" title="Expecting Block Level Scope"></a>Expecting Block Level Scope</h2><p>JavaScript <strong>does not</strong> create a new scope for each code block.</p><p>It is true in many programming languages, but <strong>not true</strong> in JavaScript.</p><p>This code will display the value of i (10), even OUTSIDE the for loop block:</p><h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><p>for (var i = 0; i &lt; 10; i++) {<br>​    // some code<br>}<br>return i;</p><h2 id="Built-in-JavaScript-Constructors"><a href="#Built-in-JavaScript-Constructors" class="headerlink" title="Built-in JavaScript Constructors"></a>Built-in JavaScript Constructors</h2><p>JavaScript has built-in constructors for native objects:</p><h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h3><p>var x1 = new Object();    // A new Object object<br>var x2 = new String();    // A new String object<br>var x3 = new Number();    // A new Number object<br>var x4 = new Boolean();   // A new Boolean object<br>var x5 = new Array();     // A new Array object<br>var x6 = new RegExp();    // A new RegExp object<br>var x7 = new Function();  // A new Function object<br>var x8 = new Date();      // A new Date object</p><p>The Math() object is not in the list. Math is a global object. The new keyword cannot be used on Math.</p><h2 id="Did-You-Know"><a href="#Did-You-Know" class="headerlink" title="Did You Know?"></a>Did You Know?</h2><p>As you can see, JavaScript has object versions of the primitive data types String, Number, and Boolean.</p><p>There is no reason to create complex objects. Primitive values execute much faster.</p><p>And there is no reason to use new Array(). Use array literals instead: []</p><p>And there is no reason to use new RegExp(). Use pattern literals instead: /()/</p><p>And there is no reason to use new Function(). Use function expressions instead: function () {}.</p><p>And there is no reason to use new Object(). Use object literals instead: {}</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Expecting-Loose-Comparison&quot;&gt;&lt;a href=&quot;#Expecting-Loose-Comparison&quot; class=&quot;headerlink&quot; title=&quot;Expecting Loose Comparison&quot;&gt;&lt;/a&gt;Expectin
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript, Python" scheme="http://yoursite.com/tags/JavaScript-Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux打开文本文件</title>
