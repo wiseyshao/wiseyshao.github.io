@@ -186,6 +186,7 @@
 </table>
 <p>Predicates (expressions within square brackets) must be preceded by a tag name, an asterisk, or another predicate. <code>position</code> predicates must be preceded by a tag name.</p>
 <p>Xpath Python使用示例：</p>
+<p>Here’s an example that demonstrates some of the XPath capabilities of the module. We’ll be using the <code>countrydata</code> XML document from the <a href="#elementtree-parsing-xml">Parsing XML</a> section:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</div><div class="line"></div><div class="line">root = ET.fromstring(countrydata)</div><div class="line"></div><div class="line"><span class="comment"># Top-level elements</span></div><div class="line">root.findall(<span class="string">"."</span>)</div><div class="line"></div><div class="line"><span class="comment"># All 'neighbor' grand-children of 'country' children of the top-level</span></div><div class="line"><span class="comment"># elements</span></div><div class="line">root.findall(<span class="string">"./country/neighbor"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Nodes with name='Singapore' that have a 'year' child</span></div><div class="line">root.findall(<span class="string">".//year/..[@name='Singapore']"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 'year' nodes that are children of nodes with name='Singapore'</span></div><div class="line">root.findall(<span class="string">".//*[@name='Singapore']/year"</span>)</div><div class="line"></div><div class="line"><span class="comment"># All 'neighbor' nodes that are the second child of their parent</span></div><div class="line">root.findall(<span class="string">".//neighbor[2]"</span>)</div></pre></td></tr></table></figure>
 
     </article>
@@ -550,6 +551,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-archive"> Total : 23 </div>
     
     <div class="post-archive">
@@ -606,12 +613,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Generating-a-new-SSH-key-and-adding-it-to-the-ssh-agent/" >Generating a New SSH Key and Adding It to the Ssh-Agent</a>
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Mac命令行安装Virtualbox-Vagrant/" >Mac命令行安装Virtualbox && Vagrant</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Mac命令行安装Virtualbox-Vagrant/" >Mac命令行安装Virtualbox && Vagrant</a>
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Generating-a-new-SSH-key-and-adding-it-to-the-ssh-agent/" >Generating a New SSH Key and Adding It to the Ssh-Agent</a>
         </li>
     
     
@@ -693,11 +700,11 @@
     
         <span class="sidebar-tag-name"><a href= "#">生活体察记录, Python</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Atom</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Python</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS, Python, CSS Selectors</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Python</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Atom</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">JavaScript, Python</a></span>
     
@@ -707,9 +714,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">terminal, Mac, virtualbox, vagrant</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Xpath, Python</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Ubuntu, Linux, Sublime</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Xpath, Python</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Ubuntu, Python, Dcoker</a></span>
     
