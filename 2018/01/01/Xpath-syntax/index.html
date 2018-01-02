@@ -189,6 +189,119 @@
 <p>Here’s an example that demonstrates some of the XPath capabilities of the module. We’ll be using the <code>countrydata</code> <strong>XML document</strong> from the <a href="#elementtree-parsing-xml">Parsing XML</a> section:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</div><div class="line"></div><div class="line">root = ET.fromstring(countrydata)</div><div class="line"></div><div class="line"><span class="comment"># Top-level elements</span></div><div class="line">root.findall(<span class="string">"."</span>)</div><div class="line"></div><div class="line"><span class="comment"># All 'neighbor' grand-children of 'country' children of the top-level</span></div><div class="line"><span class="comment"># elements</span></div><div class="line">root.findall(<span class="string">"./country/neighbor"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Nodes with name='Singapore' that have a 'year' child</span></div><div class="line">root.findall(<span class="string">".//year/..[@name='Singapore']"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 'year' nodes that are children of nodes with name='Singapore'</span></div><div class="line">root.findall(<span class="string">".//*[@name='Singapore']/year"</span>)</div><div class="line"></div><div class="line"><span class="comment"># All 'neighbor' nodes that are the second child of their parent</span></div><div class="line">root.findall(<span class="string">".//neighbor[2]"</span>)</div></pre></td></tr></table></figure>
 <p>以上示例用于XML文本，如果要作用于HTML文本，需要将 <code>import xml.etree.ElementTree as ET</code> 改为 <code>import lxml.html</code> ，以及将 <code>root = ET.fromstring(countrydata)</code> 改为 <code>root = lxml.html.fromstring(HTMLData)</code></p>
+<h2 id="XPath-Axes"><a href="#XPath-Axes" class="headerlink" title="XPath Axes"></a>XPath Axes</h2><p>An axis defines a node-set relative to the current node.</p>
+<table>
+<thead>
+<tr>
+<th>AxisName</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ancestor</td>
+<td>Selects all ancestors (parent, grandparent, etc.) of the current node</td>
+</tr>
+<tr>
+<td>ancestor-or-self</td>
+<td>Selects all ancestors (parent, grandparent, etc.) of the current node and the current node itself</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>Selects all attributes of the current node</td>
+</tr>
+<tr>
+<td>child</td>
+<td>Selects all children of the current node</td>
+</tr>
+<tr>
+<td>descendant</td>
+<td>Selects all descendants (children, grandchildren, etc.) of the current node</td>
+</tr>
+<tr>
+<td>descendant-or-self</td>
+<td>Selects all descendants (children, grandchildren, etc.) of the current node and the current node itself</td>
+</tr>
+<tr>
+<td>following</td>
+<td>Selects everything in the document after the closing tag of the current node</td>
+</tr>
+<tr>
+<td>following-sibling</td>
+<td>Selects all siblings after the current node</td>
+</tr>
+<tr>
+<td>namespace</td>
+<td>Selects all namespace nodes of the current node</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>Selects the parent of the current node</td>
+</tr>
+<tr>
+<td>preceding</td>
+<td>Selects all nodes that appear before the current node in the document, except ancestors, attribute nodes and namespace nodes</td>
+</tr>
+<tr>
+<td>preceding-sibling</td>
+<td>Selects all siblings before the current node</td>
+</tr>
+<tr>
+<td>self</td>
+<td>Selects the current node</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Axe-Examples"><a href="#Axe-Examples" class="headerlink" title="Axe Examples"></a>Axe Examples</h3><table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>child::book</td>
+<td>Selects all book nodes that are children of the current node</td>
+</tr>
+<tr>
+<td>attribute::lang</td>
+<td>Selects the lang attribute of the current node</td>
+</tr>
+<tr>
+<td>child::*</td>
+<td>Selects all element children of the current node</td>
+</tr>
+<tr>
+<td>attribute::*</td>
+<td>Selects all attributes of the current node</td>
+</tr>
+<tr>
+<td>child::text()</td>
+<td>Selects all text node children of the current node</td>
+</tr>
+<tr>
+<td>child::node()</td>
+<td>Selects all children of the current node</td>
+</tr>
+<tr>
+<td>descendant::book</td>
+<td>Selects all book descendants of the current node</td>
+</tr>
+<tr>
+<td>ancestor::book</td>
+<td>Selects all book ancestors of the current node</td>
+</tr>
+<tr>
+<td>ancestor-or-self::book</td>
+<td>Selects all book ancestors of the current node - and the current as well if it is a book node</td>
+</tr>
+<tr>
+<td>child::*/child::price</td>
+<td>Selects all price grandchildren of the current node</td>
+</tr>
+</tbody>
+</table>
 
     </article>
     <!-- 前后页  -->
@@ -259,7 +372,7 @@
         <div class="toc-catalog">
             CATALOG
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Path-句法-URL-："><span class="toc-number">1.</span> <span class="toc-text">Path 句法(URL)：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Path-句法-URL-："><span class="toc-number">1.</span> <span class="toc-text">Path 句法(URL)：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XPath-Axes"><span class="toc-number"></span> <span class="toc-text">XPath Axes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Axe-Examples"><span class="toc-number">1.</span> <span class="toc-text">Axe Examples</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -273,6 +386,8 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -599,12 +714,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/关于学习编程的一些建议/" >关于学习编程的一些建议</a>
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/Linux打开文本文件/" >Linux打开文本文件</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/Linux打开文本文件/" >Linux打开文本文件</a>
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/关于学习编程的一些建议/" >关于学习编程的一些建议</a>
         </li>
     
     
@@ -614,12 +729,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Mac命令行安装Virtualbox-Vagrant/" >Mac命令行安装Virtualbox && Vagrant</a>
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Generating-a-new-SSH-key-and-adding-it-to-the-ssh-agent/" >Generating a New SSH Key and Adding It to the Ssh-Agent</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Generating-a-new-SSH-key-and-adding-it-to-the-ssh-agent/" >Generating a New SSH Key and Adding It to the Ssh-Agent</a>
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Mac命令行安装Virtualbox-Vagrant/" >Mac命令行安装Virtualbox && Vagrant</a>
         </li>
     
     
@@ -705,21 +820,21 @@
     
         <span class="sidebar-tag-name"><a href= "#">Atom</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript, Python</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">CSS, Python, CSS Selectors</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript, Python</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">github, key</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">terminal, Mac, virtualbox, vagrant</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Xpath, Python</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Ubuntu, Linux, Sublime</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">terminal, Mac, virtualbox, vagrant</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">Ubuntu, Python, Dcoker</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Xpath, Python</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Linux, Python, Qt</a></span>
     
