@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        关于学习编程的一些建议 · hongyuan&#39;s blog
+        Learning Http · hongyuan&#39;s blog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >Recording the Way</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">关于学习编程的一些建议</a>
+                <a href="#" class="post-name">Learning Http</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            关于学习编程的一些建议
+            Learning Http
             <!-- 404 -->
             
         </h1>
@@ -120,13 +120,13 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 编程, 建议>编程, 建议</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = http>http</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/12/21</span>
+                <span class="post-intro-time">2018/01/05</span>
             </div>
         
     </div>
@@ -134,38 +134,27 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="编程提高方法："><a href="#编程提高方法：" class="headerlink" title="编程提高方法："></a><strong>编程提高方法：</strong></h2><ol>
-<li>不断练习。</li>
-<li>抓大放小。（抓住那些感兴，趣能够推动编程水平真正有用的东西，放掉那些可能会纠缠住我们的细节问题）（不只是学习knowledge，更重要的是skills）</li>
-<li>多练简单题。（从模仿开始，沉住气）</li>
-<li>选最薄的参考书。</li>
-<li>第一位问题是如何解决问题，而不是怎么快速解决。</li>
-</ol>
-<p>今后的写作要完全按照金字塔的形式，先总后分来进行。先有结构，程序要先有轮廓，无论是在看程序还是在写程序</p>
-<p>结构化程序设计：由大到小，由粗到精，由抽象到具体</p>
-<p>程序结构：</p>
-<p>程序由若干模块组成</p>
-<p>模块之内“高内聚”</p>
-<p>模块之间“低耦合”</p>
-<p>勤加练习，多做简单题</p>
-<p>数据部分、运算部分、控制部分、传输部分</p>
+        <h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Request       = Request-Line              </div><div class="line">                        *(( general-header        </div><div class="line">                         | request-header         </div><div class="line">                         | entity-header ) CRLF)  </div><div class="line">                        CRLF</div><div class="line">                        [ message-body ]</div></pre></td></tr></table></figure>
+<h4 id="Request-Line"><a href="#Request-Line" class="headerlink" title="Request-Line"></a>Request-Line</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Request-Line   = Method SP Request-URI SP HTTP-Version CRLF</div></pre></td></tr></table></figure>
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Method         = &quot;OPTIONS&quot;                </div><div class="line">                      | &quot;GET&quot;             </div><div class="line">                      | &quot;HEAD&quot;            </div><div class="line">                      | &quot;POST&quot;            </div><div class="line">                      | &quot;PUT&quot;             </div><div class="line">                      | &quot;DELETE&quot;          </div><div class="line">                      | &quot;TRACE&quot;           </div><div class="line">                      | &quot;CONNECT&quot;         </div><div class="line">                      | extension-method</div><div class="line">       extension-method = token</div></pre></td></tr></table></figure>
+<h4 id="Request-URI"><a href="#Request-URI" class="headerlink" title="Request-URI"></a>Request-URI</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Request-URI    = &quot;*&quot; | absoluteURI | abs_path | authority</div></pre></td></tr></table></figure>
+<p>例子：GET <a href="http://www.w3.org/pub/WWW/TheProject.html" target="_blank" rel="external">http://www.w3.org/pub/WWW/TheProject.html</a> HTTP/1.1</p>
+<h4 id="Request-Header-Fields"><a href="#Request-Header-Fields" class="headerlink" title="Request Header Fields"></a>Request Header Fields</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">request-header = Accept                   </div><div class="line">                     | Accept-Charset     </div><div class="line">                     | Accept-Encoding    </div><div class="line">                     | Accept-Language    </div><div class="line">                     | Authorization      </div><div class="line">                     | Expect             </div><div class="line">                     | From               </div><div class="line">                     | Host               </div><div class="line">                     | If-Match           </div><div class="line">                      | If-Modified-Since </div><div class="line">                     | If-None-Match      </div><div class="line">                     | If-Range           </div><div class="line">                     | If-Unmodified-Since</div><div class="line">                     | Max-Forwards       </div><div class="line">                     | Proxy-Authorization</div><div class="line">                     | Range              </div><div class="line">                     | Referer            </div><div class="line">                     | TE                 </div><div class="line">                     | User-Agent</div></pre></td></tr></table></figure>
+<h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Response      = Status-Line               ;</div><div class="line">                       *(( general-header        </div><div class="line">                        | response-header        </div><div class="line">                        | entity-header ) CRLF)  </div><div class="line">                       CRLF</div><div class="line">                       [ message-body ]</div></pre></td></tr></table></figure>
+<h4 id="Status-Line"><a href="#Status-Line" class="headerlink" title="Status-Line"></a>Status-Line</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF</div></pre></td></tr></table></figure>
+<h4 id="Status-Code-and-Reason-Phrase"><a href="#Status-Code-and-Reason-Phrase" class="headerlink" title="Status Code and Reason Phrase"></a>Status Code and Reason Phrase</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- 1xx: Informational - Request received, continuing process</div><div class="line"></div><div class="line">- 2xx: Success - The action was successfully received,</div><div class="line">understood, and accepted</div><div class="line"></div><div class="line">- 3xx: Redirection - Further action must be taken in order to</div><div class="line">complete the request</div><div class="line"></div><div class="line">- 4xx: Client Error - The request contains bad syntax or cannot</div><div class="line">be fulfilled</div><div class="line"></div><div class="line">- 5xx: Server Error - The server failed to fulfill an apparently</div><div class="line">valid request</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">Status-Code    =</div><div class="line">          | &quot;100&quot;  ; Continue</div><div class="line">          | &quot;101&quot;  ; Switching Protocols</div><div class="line">          | &quot;200&quot;  ; OK</div><div class="line">          | &quot;201&quot;  ; Created</div><div class="line">          | &quot;202&quot;  ; Accepted</div><div class="line">          | &quot;203&quot;  ; Non-Authoritative Information</div><div class="line">          | &quot;204&quot;  ; No Content</div><div class="line">          | &quot;205&quot;  ; Reset Content</div><div class="line">          | &quot;206&quot;  ; Partial Content</div><div class="line">          | &quot;300&quot;  ; Multiple Choices</div><div class="line">          | &quot;301&quot;  ; Moved Permanently</div><div class="line">          | &quot;302&quot;  ; Found</div><div class="line">          | &quot;303&quot;  ; See Other</div><div class="line">          | &quot;304&quot;  ; Not Modified</div><div class="line">          | &quot;305&quot;  ; Use Proxy</div><div class="line">          | &quot;307&quot;  ; Temporary Redirect</div><div class="line">          | &quot;400&quot;  ; Bad Request</div><div class="line">          | &quot;401&quot;  ; Unauthorized</div><div class="line">          | &quot;402&quot;  ; Payment Required</div><div class="line">          | &quot;403&quot;  ; Forbidden</div><div class="line">          | &quot;404&quot;  ; Not Found</div><div class="line">          | &quot;405&quot;  ; Method Not Allowed</div><div class="line">          | &quot;406&quot;  ; Not Acceptable</div><div class="line">          | &quot;407&quot;  ; Proxy Authentication Required</div><div class="line">          | &quot;408&quot;  ; Request Time-out</div><div class="line">          | &quot;409&quot;  ;: Conflict</div><div class="line">          | &quot;410&quot;  ;: Gone</div><div class="line">          | &quot;411&quot;  ;: Length Required</div><div class="line">          | &quot;412&quot;  ;: Precondition Failed</div><div class="line">          | &quot;413&quot;  ;: Request Entity Too Large</div><div class="line">          | &quot;414&quot;  ;: Request-URI Too Large</div><div class="line">          | &quot;415&quot;  ;: Unsupported Media Type</div><div class="line">          | &quot;416&quot;  ;: Requested range not satisfiable</div><div class="line">          | &quot;417&quot;  ;: Expectation Failed</div><div class="line">          | &quot;500&quot;  ; Internal Server Error</div><div class="line">          | &quot;501&quot;  ; Not Implemented</div><div class="line">          | &quot;502&quot;  ; Bad Gateway</div><div class="line">          | &quot;503&quot;  ; Service Unavailable</div><div class="line">          | &quot;504&quot;  ; Gateway Time-out</div><div class="line">          | &quot;505&quot;  ; HTTP Version not supported</div><div class="line">          | extension-code</div></pre></td></tr></table></figure>
+<h4 id="Response-Header-Fields"><a href="#Response-Header-Fields" class="headerlink" title="Response Header Fields"></a>Response Header Fields</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">response-header = Accept-Ranges           </div><div class="line">                       | Age              </div><div class="line">                       | ETag             </div><div class="line">                       | Location         </div><div class="line">                       | Proxy-Authenticate</div><div class="line">                       | Retry-After      </div><div class="line">                       | Server           </div><div class="line">                       | Vary             </div><div class="line">                       | WWW-Authenticate</div></pre></td></tr></table></figure>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/12/21/Linux打开文本文件/" title= Linux打开文本文件 >
-                    <span>Next Post</span>
-                    <span>Linux打开文本文件</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/12/20/Ubuntu-install-sublime/" title= Ubuntu: Install Sublime >
+                <a href= "/2018/01/02/Xpath-Cheatsheet/" title= Xpath Cheatsheet >
                     <span>Previous Post</span>
-                    <span>Ubuntu: Install Sublime</span>
+                    <span>Xpath Cheatsheet</span>
                 </a>
             </li>
         
@@ -226,7 +215,7 @@
         <div class="toc-catalog">
             CATALOG
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编程提高方法："><span class="toc-number">1.</span> <span class="toc-text">编程提高方法：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Request"><span class="toc-number">1.</span> <span class="toc-text">Request</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Request-Line"><span class="toc-number">1.0.1.</span> <span class="toc-text">Request-Line</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method"><span class="toc-number">1.0.2.</span> <span class="toc-text">Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Request-URI"><span class="toc-number">1.0.3.</span> <span class="toc-text">Request-URI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Request-Header-Fields"><span class="toc-number">1.0.4.</span> <span class="toc-text">Request Header Fields</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Response"><span class="toc-number">2.</span> <span class="toc-text">Response</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Status-Line"><span class="toc-number">2.0.1.</span> <span class="toc-text">Status-Line</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Status-Code-and-Reason-Phrase"><span class="toc-number">2.0.2.</span> <span class="toc-text">Status Code and Reason Phrase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Response-Header-Fields"><span class="toc-number">2.0.3.</span> <span class="toc-text">Response Header Fields</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
