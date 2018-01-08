@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/08/String-format-syntax/</loc>
+    
+    <lastmod>2018-01-08T07:30:55.525Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/01/05/learning-http/</loc>
     
     <lastmod>2018-01-05T17:17:02.535Z</lastmod>
