@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Best Atom Plugins · hongyuan&#39;s blog
+        hongyuan&#39;s blog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,22 +68,11 @@
     
 </head>
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Recording the Way</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Best Atom Plugins</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Recording the Way</a>
 </header>
@@ -91,109 +80,70 @@
         <div class="site-intro">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Best Atom Plugins
-            <!-- 404 -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-        </p>
-        <!-- 404 -->
-        
         <!-- 文章页meta -->
-        
-            <!-- 文章页标签  -->
-            
-                <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Atom>Atom</a>
-    
-</div>
-            
-            <div class="post-intro-meta">
-                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/12/28</span>
-            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p><strong>转载地址：</strong> <a href="http://shanky.org/2017/01/11/atom-editor-for-python/" target="_blank" rel="external">Shashank Tiwari</a></p>
-<p><a href="https://atom.io/" target="_blank" rel="external">Atom</a> is a beautiful and customizable editor that can be leveraged gainfully for Python programming. Built on <a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a>, a technology for building cross platform desktop apps with JavaScript, HTML, and CSS, Atom is, as Github says, “hackable”. Its support for plugins and add-ons via packages allows one to add customizations and newer capabilities beyond what comes out of the box.</p>
-<h2 id="Atom-Packages"><a href="#Atom-Packages" class="headerlink" title="Atom Packages"></a>Atom Packages</h2><p>The package system is at the heart of Atom’s design. Atom itself has a very lightweight core and most of its own default features, like the “Settings View”, are implemented via packages. The out of box comes with over 90 packages installed.</p>
-<p>Newer packages can be searched and installed via the “Install” tab in the “Settings View”. Look at Figure 1, which shows the “Install” tab.</p>
-<p><img src="http://shanky.org/assets/images/install_tab_in_the_settings_view.png" alt="img">Figure 1: Atom Settings View Install Tab</p>
-<blockquote>
-<p>These searchable Atom packages are published to the official Atom registry at <a href="https://atom.io/packages" target="_blank" rel="external">https://atom.io/packages</a>.</p>
-</blockquote>
-<h3 id="Installing-using-the-command-line"><a href="#Installing-using-the-command-line" class="headerlink" title="Installing using the command line"></a>Installing using the command line</h3><p>Atom comes with a command line utility named <em>apm</em>, short for atom package manager. Latest version of a package can be installed easily using the following command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install &lt;package_name&gt;</div></pre></td></tr></table></figure>
-<p>This assumes you know the exact name of the package you want to install. If you are not sure of the exact name of the package then you can search for packages like so:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm search &lt;possible_package_name&gt;</div></pre></td></tr></table></figure>
-<p>While installing the latest version of a package is desirable, you may need to install a specific older version. Its easy to install a specific version as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install &lt;package_name&gt;@&lt;package_version&gt;</div></pre></td></tr></table></figure>
-<p>To view more information about a specific package, use:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm view &lt;package_name&gt;</div></pre></td></tr></table></figure>
-<h2 id="Atom-Packages-for-Python"><a href="#Atom-Packages-for-Python" class="headerlink" title="Atom Packages for Python"></a>Atom Packages for Python</h2><p>PEP8 (short for Python Enhancement Proposal 8) is the style guide for Python code. Pythonic code is optimized for readability. Clean, explicit, and simple code structure, design, and layout is preferred over complexity. PEP257 specifies docstring conventions. Docstrings are string literals that appear as the first statement in a Python function, module, class, or method definition. It serves as code comments and is also accessible at runtime via the “<strong>doc</strong>” attribute. Atom’s support for code linters can help you proactively check your code for errors and adherence to PEP8 and PEP257.</p>
-<p>Linter is an Atom package that provides a unified and consistent api for all atom linter plugins. Start by installing this package:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install linter</div></pre></td></tr></table></figure>
-<p>Next, piggyback on the Python packages to do the heavy lifting. Install flake8, the wrapper around PyFlakes, pycodestyle, and Mc Cabe script. <em>pip</em> is the most popular and widely used package manager for Python and using it is very easy. To install flake8 and flake8-pep257, use pip as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install flake8</div><div class="line">pip install flake8-pep257</div></pre></td></tr></table></figure>
-<p>Now that flake8 is available on your system, install linter-flake8. The linter-flake8 package is a flake8 provider for linter. It makes it possible for Atom linter to leverage flake8 for checking Python code for style adherence. Install linter-flake8 like so:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install linter-flake8</div></pre></td></tr></table></figure>
-<h2 id="Automating-Style-Corrections"><a href="#Automating-Style-Corrections" class="headerlink" title="Automating Style Corrections"></a>Automating Style Corrections</h2><p>Linter with flake8’s help surfaces style related errors and warnings but doesn’t correct it for you. The python package autopep8 on the other hand autocorrects your errors. Install autopep8 via the command line as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install autopep8</div></pre></td></tr></table></figure>
-<p>Formatting issues identified by PEP8 checkers are listed at <a href="https://pep8.readthedocs.io/en/latest/intro.html#error-codes" target="_blank" rel="external">PEP8 Error Codes</a>. autopep8 is capable of fixing most of these. autopep8 can be used via the command line to fix errors like so:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">autopep8 --in-place --aggressive --aggressive &lt;filename&gt;</div></pre></td></tr></table></figure>
-<p>Within an editor or a development environment its very convenient if the auto corrections are transparent and don’t involve invoking utilities via the command line. A good point for auto correction if often when a source code file is saved after it is edited. Atom’s atom-beautify package allows integration of autopep8 as the beautifier for Python code. It also offers the option to “Beautify on Save”. Install atom-beautify as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install atom-beautify</div></pre></td></tr></table></figure>
-<p>Look at Figure 2, which illustrates the configuration options for Python within atom-beautify settings.</p>
-<p><img src="http://shanky.org/assets/images/atom_beautify_configuration_options_for_pyton.png" alt="img">Figure 2: atom-beautify configuration options for Python</p>
-
-    </article>
-    <!-- 前后页  -->
-    <ul class="post-pager">
-        
-            <li class="next">
-                <a href= "/2018/01/01/Xpath-syntax/" title= Xpath Syntax >
-                    <span>Next Post</span>
-                    <span>Xpath Syntax</span>
-                </a>
-            </li>
-        
-        
-            <li class="previous">
-                <a href= "/2017/12/28/About-Python-Class-s-init/" title= About Python Class's '__Init__' >
-                    <span>Previous Post</span>
-                    <span>About Python Class's '__Init__'</span>
-                </a>
-            </li>
-        
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
+            <main class="main index-page">
     
     
-    <!--PC版-->
-
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2018/01/08/Regex-syntax/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>Regex Syntax</span>
+                    </h2>
+                <div class="abstract-content">
+                    &#39;.&#39;
+(Dot.) 表示除换行符意外的所有符号。
+&#39;$&#39;
+本质上来说，代表换行符，为本行的换行符。
+&#39;^&#39;
+(Caret.)本质上来说也可以表示换行符，只不过是上一行的换行符。
+&#39;?&#39;
+表示其前面的字符出现一次或者没有出现。
+*?, +?, ??
+The &#39;*&#39;, &#39;+&#39;, and &#39;?&#39;会匹配尽可能多的匹配想，而*?, +?, ??一旦发现匹配项即立即终止匹配。
+{m,n}?
+同上。
+&#39;\&#39;
+转义符，消除紧连其后符号的特殊意义，只表示符号本身。
+[]
+Spe...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Regular Expression>Regular Expression</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/08</span>
+                </div>
+            </div>
+        </article>
+    
+    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -237,13 +187,6 @@
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper">
-        <div class="toc-catalog">
-            CATALOG
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Atom-Packages"><span class="toc-number">1.</span> <span class="toc-text">Atom Packages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-using-the-command-line"><span class="toc-number">1.1.</span> <span class="toc-text">Installing using the command line</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Atom-Packages-for-Python"><span class="toc-number">2.</span> <span class="toc-text">Atom Packages for Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Automating-Style-Corrections"><span class="toc-number">3.</span> <span class="toc-text">Automating Style Corrections</span></a></li></ol>
-    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

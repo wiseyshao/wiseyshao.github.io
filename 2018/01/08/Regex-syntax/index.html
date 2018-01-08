@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        Regex Syntax · hongyuan&#39;s blog
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- 提前加载place holder  -->
+    <style>
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url('/font/Oswald-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('/font/Source Sans Pro.woff'),
+            url('/font/Source Sans Pro.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Source Code Pro';
+            src: url('/font/SourceCodePro-Regular.ttf.woff'),
+            url('/font/SourceCodePro-Regular.ttf.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        
+        .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0px;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        99% {
+            transform: translate3d(0, 0, 0);
+        }
+        99.1% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(-226px, 0, 0);
+        }
+    }
+    </style>
+    <link rel="stylesheet" href = /css/style.css?v=20171005 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Recording the Way</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Regex Syntax</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Recording the Way</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Regex Syntax
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+        </p>
+        <!-- 404 -->
+        
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Regular Expression>Regular Expression</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/01/08</span>
+            </div>
+        
+    </div>
+</div>
+        <div class="container">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p><code>&#39;.&#39;</code></p>
+<p>(Dot.) 表示除换行符意外的所有符号。</p>
+<p><code>&#39;$&#39;</code></p>
+<p>本质上来说，代表换行符，为本行的换行符。</p>
+<p><code>&#39;^&#39;</code></p>
+<p>(Caret.)本质上来说也可以表示换行符，只不过是上一行的换行符。</p>
+<p><code>&#39;?&#39;</code></p>
+<p>表示其前面的字符出现一次或者没有出现。</p>
+<p><code>*?</code>, <code>+?</code>, <code>??</code></p>
+<p>The <code>&#39;*&#39;</code>, <code>&#39;+&#39;</code>, and <code>&#39;?&#39;</code>会匹配尽可能多的匹配想，而<code>*?</code>, <code>+?</code>, <code>??</code>一旦发现匹配项即立即终止匹配。</p>
+<p><code>{m,n}?</code></p>
+<p>同上。</p>
+<p><code>&#39;\&#39;</code></p>
+<p>转义符，消除紧连其后符号的特殊意义，只表示符号本身。</p>
+<p><code>[]</code></p>
+<p>Special characters(except ‘/‘) lose their special meaning inside sets.</p>
+<p>Character classes such as <code>\w</code> or <code>\S</code> (defined below) are also accepted inside a set.</p>
+<p> If the first character of the set is <code>&#39;^&#39;</code>, all the characters that are <em>not</em> in the set will be matched. <code>^</code> has no special meaning if it’s not the first character in the set.</p>
+<p>To match a literal <code>&#39;]&#39;</code> inside a set, precede it with a backslash, or place it at the beginning of the set.</p>
+<p><code>(?aiLmsux)</code></p>
+<p>(<strong>One or more</strong> letters from the set <code>&#39;a&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;L&#39;</code>, <code>&#39;m&#39;</code>, <code>&#39;s&#39;</code>, <code>&#39;u&#39;</code>, <code>&#39;x&#39;</code>.) </p>
+<p>The group matches the empty string（也就是说可以把空的string也可以匹配进来）; the letters set the corresponding flags: <a href="#re.A"><code>re.A</code></a> (ASCII-only matching), <a href="#re.I"><code>re.I</code></a> (ignore case), <a href="#re.L"><code>re.L</code></a> (locale dependent),<a href="#re.M"><code>re.M</code></a> (multi-line), <a href="#re.S"><code>re.S</code></a> (dot matches all，即包括换行符), and <a href="#re.X"><code>re.X</code></a> (verbose), for the entire regular expression. </p>
+<p> This is useful if you wish to include the <strong>flags</strong>（也就是多个标识） as part of the regular expression, instead of passing <strong>a <em>flag</em></strong> （而不是一个标识）argument to the <a href="#re.compile"><code>re.compile()</code></a> function. Flags should be used first in the expression string.</p>
+<p><code>(?:...)</code></p>
+<p>表示不匹配匹配但不输出冒号后的内容。</p>
+<p><code>(?imsx-imsx:...)</code></p>
+<p><strong>Zero or more letters</strong> from the set <code>&#39;i&#39;</code>, <code>&#39;m&#39;</code>, <code>&#39;s&#39;</code>, <code>&#39;x&#39;</code>, optionally followed by <code>&#39;-&#39;</code> followed by one or more letters from the same set.因为有了冒号，前面可以有也可以没有<code>&#39;i&#39;</code>, <code>&#39;m&#39;</code>, <code>&#39;s&#39;</code>, <code>&#39;x&#39;</code>。</p>
+<p>最终是匹配但不输出的意思。</p>
+<p><code>(?P&lt;name&gt;...)</code></p>
+<p>Similar to regular parentheses, but the substring matched by the group is accessible via the symbolic group name <em>name</em>. （与常规的括号意义相同，只不过匹配的东西可以用唯一标示的名字来指定）。A symbolic group is also a numbered group, just as if the group were not named.（即是说标示也可以用数字来表示）</p>
+<p> If the pattern is <code>(?P&lt;quote&gt;[&#39;&quot;]).*?(?P=quote)</code> (i.e. matching a string quoted with either single or double quotes):</p>
+<table>
+<thead>
+<tr>
+<th>Context of reference to group “quote”</th>
+<th>Ways to reference it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>in the same pattern itself</td>
+<td><code>(?P=quote)</code> (as shown)<code>\1</code></td>
+</tr>
+<tr>
+<td>when processing match object <code>m</code></td>
+<td><code>m.group(&#39;quote&#39;)``m.end(&#39;quote&#39;)</code> (etc.)</td>
+</tr>
+<tr>
+<td>in a string passed to the <code>repl</code> argument of <code>re.sub()</code></td>
+<td><code>\g&lt;quote&gt;``\g&lt;1&gt;``\1</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>(?P=name)</code></p>
+<p>A backreference to a named group（回指）</p>
+<p><code>(?#...)</code></p>
+<p>A comment</p>
+<p><code>(?=...)</code></p>
+<p>Matches if <code>...</code> matches next, but doesn’t consume any of the string. This is called a lookahead assertion.For example, <code>Isaac (?=Asimov)</code> will match <code>&#39;Isaac &#39;</code> only if it’s followed by <code>&#39;Asimov&#39;</code>.也就是说，这里的❓可以表示为占位符，假设等号后的内容紧随❓前的内容，则匹配，否则不匹配。可以称之为<strong>前置假设成立</strong>。</p>
+<p><code>(?!...)</code></p>
+<p>Matches if <code>...</code> doesn’t match next. This is a negative lookahead assertion. For example, <code>Isaac (?!Asimov)</code>will match <code>&#39;Isaac &#39;</code> only if it’s <em>not</em> followed by <code>&#39;Asimov&#39;</code>.（与上述的功能相反），可以称之为<strong>前置建设不成立</strong>。</p>
+<p><code>(?&lt;=...)</code></p>
+<p>Matches if the current position in the string is preceded by a match for <code>...</code> that ends at the current position. This is called a <em>positive lookbehind assertion</em>. <code>(?&lt;=abc)def</code> will find a match in <code>abcdef</code>可以称之为<strong>后置假设成立</strong>。参见<code>(?=...)</code>。The contained pattern must only match strings of some fixed length, meaning that <code>abc</code> or <code>a|b</code> are allowed, but <code>a*</code> and <code>a{3,4}</code> are not.（也就是说等号后的内容必须是固定长度，这一点与参考不同）</p>
+<p><code>(?&lt;!...)</code></p>
+<p>Matches if the current position in the string is not preceded by a match for <code>...</code>. This is called a <em>negative lookbehind assertion</em>.（称之为后置假设不成立）语法同上。</p>
+<p><code>(?(id/name)yes-pattern|no-pattern)</code></p>
+<p>Will try to match with yes-pattern if the group with given id or name exists, and with no-pattern if it doesn’t. no-pattern is optional and can be omitted. For example, <code>(&lt;)?(\w+@\w+(?:\.\w+)+)(?(1)&gt;|$)</code> is a poor email matching pattern, which will match with <code>&#39;&lt;user@host.com&gt;&#39;</code> as well as <code>&#39;user@host.com&#39;</code>, but not with <code>&#39;&lt;user@host.com&#39;</code> nor <code>&#39;user@host.com&gt;&#39;</code>.</p>
+<hr>
+<p>The special sequences consist of <code>&#39;\&#39;</code> and a character from the list below. If the ordinary character is not an ASCII digit or an ASCII letter, then the resulting RE will match the second character. For example, <code>\$</code> matches the character <code>&#39;$&#39;</code>.</p>
+<p>即是说除了下面列举出来的，‘/’均为转义的意思（放在[]内的除外）</p>
+<p><code>\number</code></p>
+<p>Matches the contents of the group of the same number.</p>
+<p><code>\A</code></p>
+<p>Matches only at the <strong>start of the string</strong>.（可以表示为string前的空格），与’\Z’相反</p>
+<p><code>\b</code></p>
+<p>Matches the empty string, but only at the beginning or end of a word. A word is defined as a sequence of Unicode alphanumeric or underscore characters, so the end of a word is indicated by whitespace or a non-alphanumeric, non-underscore Unicode character. Note that formally, <code>\b</code> is defined as the boundary between a <code>\w</code> and a <code>\W</code> character (or vice versa), or between <code>\w</code> and the beginning/end of the string. This means that <code>r&#39;\bfoo\b&#39;</code> matches <code>&#39;foo&#39;</code>, <code>&#39;foo.&#39;</code>, <code>&#39;(foo)&#39;</code>, <code>&#39;bar foo baz&#39;</code> but not <code>&#39;foobar&#39;</code> or <code>&#39;foo3&#39;</code>.<strong>也就是说’\b’表示的是除去字母、整数、连字符、一个空格的集合中的单个元素</strong></p>
+<p><code>\B</code></p>
+<p>Matches the empty string, but only when it is <em>not</em> at the beginning or end of a word. This means that <code>r&#39;py\B&#39;</code>matches <code>&#39;python&#39;</code>, <code>&#39;py3&#39;</code>, <code>&#39;py2&#39;</code>, but not <code>&#39;py&#39;</code>, <code>&#39;py.&#39;</code>, or <code>&#39;py!&#39;</code>. <code>\B</code> is just the opposite of <code>\b</code>, 也就是说’\B’表示的是字母、整数、连字符、一个空格的集合中的单个元素。</p>
+<p><code>\d</code></p>
+<p>基本上可以认为匹配  <code>[0-9]</code>.</p>
+<p><code>\D</code></p>
+<p>与\d相反。</p>
+<p><code>\s</code></p>
+<p>基本上可以认为只匹配无字符输出的符号，如空格、换行、纵向制表符、横向制表符 ，即<code>[ \t\n\r\f\v]</code>。</p>
+<p><code>\S</code></p>
+<p>与上述相反<code>[^ \t\n\r\f\v]</code> 。</p>
+<p><code>\w</code></p>
+<p>基本可以理解为匹配：[a-zA-Z0-9_]。同’\b’,只是‘\b’用于界定，而’\w’用来匹配</p>
+<p><code>\W</code></p>
+<p>与上述相反：<code>[^a-zA-Z0-9_]</code> 。同’\B’,只是‘\B’用于界定，而’\W’用来匹配</p>
+<p><code>\Z</code></p>
+<p>Matches only at the end of the string. 与‘\A’相反。</p>
+<hr>
+<h2 id="Module-Contents"><a href="#Module-Contents" class="headerlink" title="Module Contents"></a>Module Contents</h2><p><code>re.compile(*pattern*, *flags=0*)</code></p>
+<p>The sequence</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">prog = re.compile(pattern)</div><div class="line">result = prog.match(string)</div></pre></td></tr></table></figure>
+<p>is equivalent to</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result = re.match(pattern, string)</div></pre></td></tr></table></figure>
+<p><code>re.A</code></p>
+<p><code>re.ASCII</code></p>
+<p>Make <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code> and <code>\S</code> perform ASCII-only matching.</p>
+<p><code>re.DEBUG</code></p>
+<p>Display debug information about compiled expression.</p>
+<p><code>re.I</code></p>
+<p><code>re.IGNORECASE</code></p>
+<p><code>re.L</code></p>
+<p><code>re.LOCALE</code></p>
+<p><code>re.M</code></p>
+<p><code>re.MULTILINE</code></p>
+<p>When specified, the pattern character <code>&#39;^&#39;</code> matches at the beginning of the string and at the beginning of each line. and the pattern character <code>&#39;$&#39;</code> matches at the end of the string and at the end of each line.</p>
+<p><code>re.S</code></p>
+<p><code>re.DOTALL</code></p>
+<p>Make the <code>&#39;.&#39;</code> special character match any character at all, including a newline; without this <strong>flag</strong>, <code>&#39;.&#39;</code> will match anything <em>except</em> a newline.</p>
+<p><code>re.X</code></p>
+<p><code>re.VERBOSE</code></p>
+<p><code>re.search</code>(<em>pattern</em>, <em>string</em>, <em>flags=0</em>)</p>
+<p>Scan through <em>string</em> looking for the first location where the regular expression <em>pattern</em> produces a match, and return a corresponding <a href="#match-objects">match object</a>.</p>
+<p><code>re.match</code>(<em>pattern</em>, <em>string</em>, <em>flags=0</em>)</p>
+<p>If zero or more characters at the beginning of <em>string</em> match the regular expression <em>pattern</em>, return a corresponding <a href="#match-objects">match object</a>.</p>
+<p><code>re.fullmatch</code>(<em>pattern</em>, <em>string</em>, <em>flags=0</em>)</p>
+<p>If the whole <em>string</em> matches the regular expression <em>pattern</em>, return a corresponding <a href="#match-objects">match object</a>.</p>
+<p><code>re.split</code>(<em>pattern</em>, <em>string</em>, <em>maxsplit=0</em>, <em>flags=0</em>)</p>
+<p>Split <em>string</em> by the occurrences of <em>pattern</em>. </p>
+<p><code>re.findall</code>(<em>pattern</em>, <em>string</em>, <em>flags=0</em>)</p>
+<p>Return all non-overlapping matches of <em>pattern</em> in <em>string</em>, as a list of strings.</p>
+<p><code>re.finditer</code>(<em>pattern</em>, <em>string</em>, <em>flags=0</em>)</p>
+<p>Return an <a href="../glossary.html#term-iterator">iterator</a> yielding <a href="#match-objects">match objects</a> over all non-overlapping matches for the RE <em>pattern</em> in <em>string</em>.</p>
+<p><code>re.purge</code>()</p>
+<p>Clear the regular expression cache.</p>
+<h2 id="Regular-Expression-Objects"><a href="#Regular-Expression-Objects" class="headerlink" title="Regular Expression Objects"></a>Regular Expression Objects</h2><p><code>regex.search</code>(<em>string</em>[, <em>pos</em>[, <em>endpos</em>]]) </p>
+<p><code>regex.match</code>(<em>string</em>[, <em>pos</em>[, <em>endpos</em>]]) </p>
+<p><code>regex.fullmatch</code>(<em>string</em>[, <em>pos</em>[, <em>endpos</em>]]) </p>
+<p><code>regex.split</code>(<em>string</em>, <em>maxsplit=0</em>) </p>
+<p>Identical to the split() function, using the compiled pattern.</p>
+<p><code>regex.findall</code>(<em>string</em>[, <em>pos</em>[, <em>endpos</em>]]) </p>
+<p>Similar to the <a href="#re.findall"><code>findall()</code></a> function, using the compiled pattern</p>
+<p><code>regex.finditer</code>(<em>string</em>[, <em>pos</em>[, <em>endpos</em>]]) </p>
+<p>Similar to the <a href="#re.finditer"><code>finditer()</code></a> function, using the compiled pattern</p>
+<p><code>regex.pattern</code> </p>
+<p>The pattern string from which the RE object was compiled.</p>
+<h2 id="Match-Objects"><a href="#Match-Objects" class="headerlink" title="Match Objects"></a>Match Objects</h2><p><code>match.``expand</code>(<em>template</em>) </p>
+<p><code>match.``group</code>([<em>group1</em>, <em>…</em>]) </p>
+<p>Returns one or more subgroups of the match. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\w+) (\w+)"</span>, <span class="string">"Isaac Newton, physicist"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)       <span class="comment"># The entire match</span></div><div class="line"><span class="string">'Isaac Newton'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)       <span class="comment"># The first parenthesized subgroup.</span></div><div class="line"><span class="string">'Isaac'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)       <span class="comment"># The second parenthesized subgroup.</span></div><div class="line"><span class="string">'Newton'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>, <span class="number">2</span>)    <span class="comment"># Multiple arguments give us a tuple.</span></div><div class="line">(<span class="string">'Isaac'</span>, <span class="string">'Newton'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)"</span>, <span class="string">"Malcolm Reynolds"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="string">'first_name'</span>)</div><div class="line"><span class="string">'Malcolm'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="string">'last_name'</span>)</div><div class="line"><span class="string">'Reynolds'</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'Malcolm'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'Reynolds'</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(..)+"</span>, <span class="string">"a1b2c3"</span>)  <span class="comment"># Matches 3 times.贪婪型，匹配三个字符。</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)                        <span class="comment"># Returns only the last match.</span></div><div class="line"><span class="string">'c3'</span></div></pre></td></tr></table></figure>
+<p><code>match.``__getitem__</code>(<em>g</em>) </p>
+<p>This is identical to <code>m.group(g)</code>. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\w+) (\w+)"</span>, <span class="string">"Isaac Newton, physicist"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m[<span class="number">0</span>]       <span class="comment"># The entire match</span></div><div class="line"><span class="string">'Isaac Newton'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m[<span class="number">1</span>]       <span class="comment"># The first parenthesized subgroup.</span></div><div class="line"><span class="string">'Isaac'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m[<span class="number">2</span>]       <span class="comment"># The second parenthesized subgroup.</span></div><div class="line"><span class="string">'Newton'</span></div></pre></td></tr></table></figure>
+<p><code>match.``groups</code>(<strong><em>default=None</em></strong>) </p>
+<p>Return a tuple containing all the subgroups of the match, from 1 up to however many groups are in the pattern. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\d+)\.(\d+)"</span>, <span class="string">"24.1632"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups()</div><div class="line">(<span class="string">'24'</span>, <span class="string">'1632'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\d+)\.?(\d+)?"</span>, <span class="string">"24"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups()      <span class="comment"># Second group defaults to None.</span></div><div class="line">(<span class="string">'24'</span>, <span class="keyword">None</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups(<span class="string">'0'</span>)   <span class="comment"># Now, the second group defaults to '0'.</span></div><div class="line">(<span class="string">'24'</span>, <span class="string">'0'</span>)</div></pre></td></tr></table></figure>
+<p><code>match.``groupdict</code>(<em>default=None</em>) </p>
+<p>Return a dictionary containing all the <em>named</em> subgroups of the match, keyed by the subgroup name. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)"</span>, <span class="string">"Malcolm Reynolds"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groupdict()</div><div class="line">&#123;<span class="string">'first_name'</span>: <span class="string">'Malcolm'</span>, <span class="string">'last_name'</span>: <span class="string">'Reynolds'</span>&#125;</div></pre></td></tr></table></figure>
+<p><code>match.``start</code>([<em>group</em>])</p>
+<p><code>match.``end</code>([<em>group</em>]) </p>
+<p>Return the indices of the start and end of the substring matched by <em>group</em>; <em>group</em> defaults to zero (meaning the whole matched substring). Return <code>-1</code> if <em>group</em> exists but did not contribute to the match.</p>
+<p><code>match.``span</code>([<em>group</em>]) </p>
+<p>For a match <em>m</em>, return the 2-tuple <code>(m.start(group), m.end(group))</code>. </p>
+<p><code>match.``pos</code> </p>
+<p>The value of <em>pos</em> which was passed to the <a href="#re.regex.search"><code>search()</code></a> or <a href="#re.regex.match"><code>match()</code></a> method of a <a href="#re-objects">regex object</a>. </p>
+<p><code>match.``endpos</code> </p>
+<p><code>match.``lastindex</code> </p>
+<p><code>match.``lastgroup</code> </p>
+<p><code>match.``re</code> </p>
+<p>The regular expression object whose match() or search() method produced this match instance.</p>
+<p><code>match.``string</code> </p>
+<p>The string passed to match() or search().</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/01/08/String-format-syntax/" title= String Format Syntax >
+                    <span>Previous Post</span>
+                    <span>String Format Syntax</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="emailto:wiseyshao@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/wiseyshao" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            CATALOG
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-Contents"><span class="toc-number">1.</span> <span class="toc-text">Module Contents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Regular-Expression-Objects"><span class="toc-number">2.</span> <span class="toc-text">Regular Expression Objects</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Match-Objects"><span class="toc-number">3.</span> <span class="toc-text">Match Objects</span></a></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 28 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2018/01/08/Regex-syntax/" >Regex Syntax</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2018/01/08/String-format-syntax/" >String Format Syntax</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2018/01/05/learning-http/" >Learning Http</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2018/01/02/Xpath-Cheatsheet/" >Xpath Cheatsheet</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2018/01/02/Vim-Cheatsheet/" >Vim Cheatsheet</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/01/01/Xpath-syntax/" >Xpath Syntax</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/Best-atom-plugins/" >Best Atom Plugins</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/About-Python-Class-s-init/" >About Python Class's '__Init__'</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span><a class="archive-post-title" href= "/2017/12/26/Differences-of-JavaScript-with-Python/" >Differences of JavaScript With Python</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/Linux打开文本文件/" >Linux打开文本文件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/关于学习编程的一些建议/" >关于学习编程的一些建议</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2017/12/20/Ubuntu-install-sublime/" >Ubuntu: Install Sublime</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Mac命令行安装Virtualbox-Vagrant/" >Mac命令行安装Virtualbox && Vagrant</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Generating-a-new-SSH-key-and-adding-it-to-the-ssh-agent/" >Generating a New SSH Key and Adding It to the Ssh-Agent</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/Ubuntu-如何解决用命令安装docker-engine遇到的问题/" >Ubuntu:如何解决用命令安装docker-Engine遇到的问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href= "/2017/12/18/数据库SQL简话/" >数据库SQL简话</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/16</span><a class="archive-post-title" href= "/2017/12/16/“Linux下安装Qt4-8”/" >“Linux下安装Qt4.8”</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/16</span><a class="archive-post-title" href= "/2017/12/16/CSS-Selectors概览/" >CSS Selectors概览</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/Solved-problems-about-phantomjs/" >Solved Problems About Phantomjs</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2017/11/19/Pip-使用方法简要/" >Pip 使用方法简要</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2017/11/19/Creating-Virtual-Environments/" >Creating Virtual Environments</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2017/11/18/私有变量-Private-Variables/" >(私有变量)Private Variables</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2017/11/18/guide-to-using-super/" >Guide to Using Super()</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2017/11/12/感伤而活/" >感伤而活</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2017/11/07/2017-11-7/" >2017-11-7</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/09</span><a class="archive-post-title" href= "/2017/10/09/A-little-thought-about-learning-Python/" >A Little Thought About Learning Python</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2017/10/08/2017-10-8/" >2017-10-8</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2017/10/08/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">生活体察记录</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Python</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">生活体察记录, Python</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Atom</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript, Python</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">github, key</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">CSS, Python, CSS Selectors</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Regular Expression</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">terminal, Mac, virtualbox, vagrant</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Python, String syntax</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Ubuntu, Linux, Sublime</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Ubuntu, Python, Dcoker</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">vim</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">xpath</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Xpath, Python</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">http</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Linux, Python, Qt</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">感悟</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">编程, 建议</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">SQL</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+

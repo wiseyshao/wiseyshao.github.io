@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/08/Regex-syntax/</loc>
+    
+    <lastmod>2018-01-08T09:50:00.203Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/01/08/String-format-syntax/</loc>
     
-    <lastmod>2018-01-08T07:30:55.525Z</lastmod>
+    <lastmod>2018-01-08T07:31:38.116Z</lastmod>
     
   </url>
   
