@@ -274,36 +274,36 @@
 <p>Similar to the <a href="#re.finditer"><code>finditer()</code></a> function, using the compiled pattern</p>
 <p><code>regex.pattern</code> </p>
 <p>The pattern string from which the RE object was compiled.</p>
-<h2 id="Match-Objects"><a href="#Match-Objects" class="headerlink" title="Match Objects"></a>Match Objects</h2><p><code>match.``expand</code>(<em>template</em>) </p>
-<p><code>match.``group</code>([<em>group1</em>, <em>…</em>]) </p>
+<h2 id="Match-Objects"><a href="#Match-Objects" class="headerlink" title="Match Objects"></a>Match Objects</h2><p><code>match.expand</code>(<em>template</em>) </p>
+<p><code>match.group</code>([<em>group1</em>, <em>…</em>]) </p>
 <p>Returns one or more subgroups of the match. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\w+) (\w+)"</span>, <span class="string">"Isaac Newton, physicist"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)       <span class="comment"># The entire match</span></div><div class="line"><span class="string">'Isaac Newton'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)       <span class="comment"># The first parenthesized subgroup.</span></div><div class="line"><span class="string">'Isaac'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)       <span class="comment"># The second parenthesized subgroup.</span></div><div class="line"><span class="string">'Newton'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>, <span class="number">2</span>)    <span class="comment"># Multiple arguments give us a tuple.</span></div><div class="line">(<span class="string">'Isaac'</span>, <span class="string">'Newton'</span>)</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)"</span>, <span class="string">"Malcolm Reynolds"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="string">'first_name'</span>)</div><div class="line"><span class="string">'Malcolm'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="string">'last_name'</span>)</div><div class="line"><span class="string">'Reynolds'</span></div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'Malcolm'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'Reynolds'</span></div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(..)+"</span>, <span class="string">"a1b2c3"</span>)  <span class="comment"># Matches 3 times.贪婪型，匹配三个字符。</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)                        <span class="comment"># Returns only the last match.</span></div><div class="line"><span class="string">'c3'</span></div></pre></td></tr></table></figure>
-<p><code>match.``__getitem__</code>(<em>g</em>) </p>
+<p><code>match.__getitem__</code>(<em>g</em>) </p>
 <p>This is identical to <code>m.group(g)</code>. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\w+) (\w+)"</span>, <span class="string">"Isaac Newton, physicist"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m[<span class="number">0</span>]       <span class="comment"># The entire match</span></div><div class="line"><span class="string">'Isaac Newton'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m[<span class="number">1</span>]       <span class="comment"># The first parenthesized subgroup.</span></div><div class="line"><span class="string">'Isaac'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m[<span class="number">2</span>]       <span class="comment"># The second parenthesized subgroup.</span></div><div class="line"><span class="string">'Newton'</span></div></pre></td></tr></table></figure>
-<p><code>match.``groups</code>(<strong><em>default=None</em></strong>) </p>
+<p><code>match.groups</code>(<strong><em>default=None</em></strong>) </p>
 <p>Return a tuple containing all the subgroups of the match, from 1 up to however many groups are in the pattern. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\d+)\.(\d+)"</span>, <span class="string">"24.1632"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups()</div><div class="line">(<span class="string">'24'</span>, <span class="string">'1632'</span>)</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(\d+)\.?(\d+)?"</span>, <span class="string">"24"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups()      <span class="comment"># Second group defaults to None.</span></div><div class="line">(<span class="string">'24'</span>, <span class="keyword">None</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups(<span class="string">'0'</span>)   <span class="comment"># Now, the second group defaults to '0'.</span></div><div class="line">(<span class="string">'24'</span>, <span class="string">'0'</span>)</div></pre></td></tr></table></figure>
-<p><code>match.``groupdict</code>(<em>default=None</em>) </p>
+<p><code>match.groupdict</code>(<em>default=None</em>) </p>
 <p>Return a dictionary containing all the <em>named</em> subgroups of the match, keyed by the subgroup name. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r"(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)"</span>, <span class="string">"Malcolm Reynolds"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groupdict()</div><div class="line">&#123;<span class="string">'first_name'</span>: <span class="string">'Malcolm'</span>, <span class="string">'last_name'</span>: <span class="string">'Reynolds'</span>&#125;</div></pre></td></tr></table></figure>
-<p><code>match.``start</code>([<em>group</em>])</p>
-<p><code>match.``end</code>([<em>group</em>]) </p>
+<p><code>match.start</code>([<em>group</em>])</p>
+<p><code>match.end</code>([<em>group</em>]) </p>
 <p>Return the indices of the start and end of the substring matched by <em>group</em>; <em>group</em> defaults to zero (meaning the whole matched substring). Return <code>-1</code> if <em>group</em> exists but did not contribute to the match.</p>
-<p><code>match.``span</code>([<em>group</em>]) </p>
+<p><code>match.span</code>([<em>group</em>]) </p>
 <p>For a match <em>m</em>, return the 2-tuple <code>(m.start(group), m.end(group))</code>. </p>
-<p><code>match.``pos</code> </p>
+<p><code>match.pos</code> </p>
 <p>The value of <em>pos</em> which was passed to the <a href="#re.regex.search"><code>search()</code></a> or <a href="#re.regex.match"><code>match()</code></a> method of a <a href="#re-objects">regex object</a>. </p>
-<p><code>match.``endpos</code> </p>
-<p><code>match.``lastindex</code> </p>
-<p><code>match.``lastgroup</code> </p>
-<p><code>match.``re</code> </p>
+<p><code>match.endpos</code> </p>
+<p><code>match.lastindex</code> </p>
+<p><code>match.lastgroup</code> </p>
+<p><code>match.re</code> </p>
 <p>The regular expression object whose match() or search() method produced this match instance.</p>
-<p><code>match.``string</code> </p>
+<p><code>match.string</code> </p>
 <p>The string passed to match() or search().</p>
 
     </article>
@@ -741,6 +741,22 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-archive"> Total : 28 </div>
     
     <div class="post-archive">
@@ -768,12 +784,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2018/01/02/Xpath-Cheatsheet/" >Xpath Cheatsheet</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2018/01/02/Vim-Cheatsheet/" >Vim Cheatsheet</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2018/01/02/Vim-Cheatsheet/" >Vim Cheatsheet</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2018/01/02/Xpath-Cheatsheet/" >Xpath Cheatsheet</a>
         </li>
     
     
@@ -913,17 +929,17 @@
     
         <span class="sidebar-tag-name"><a href= "#">Atom</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">CSS, Python, CSS Selectors</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">JavaScript, Python</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">github, key</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">CSS, Python, CSS Selectors</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Regular Expression</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">terminal, Mac, virtualbox, vagrant</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Regular Expression</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Python, String syntax</a></span>
     
@@ -941,11 +957,11 @@
     
         <span class="sidebar-tag-name"><a href= "#">Linux, Python, Qt</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">感悟</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">编程, 建议</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">SQL</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">感悟</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
