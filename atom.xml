@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-08T09:59:58.052Z</updated>
+  <updated>2018-01-11T14:14:54.293Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python爬虫较为常用packages</title>
+    <link href="http://yoursite.com/2018/01/11/python%E7%88%AC%E8%99%AB%E8%BE%83%E4%B8%BA%E5%B8%B8%E7%94%A8packages/"/>
+    <id>http://yoursite.com/2018/01/11/python爬虫较为常用packages/</id>
+    <published>2018-01-11T14:12:32.000Z</published>
+    <updated>2018-01-11T14:14:54.293Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python爬虫较为常用的较冷门的Packages"><a href="#Python爬虫较为常用的较冷门的Packages" class="headerlink" title="Python爬虫较为常用的较冷门的Packages"></a>Python爬虫较为常用的较冷门的Packages</h1><h2 id="CacheControl"><a href="#CacheControl" class="headerlink" title="CacheControl"></a>CacheControl</h2><p><a href="https://cachecontrol.readthedocs.io/en/latest/" target="_blank" rel="external"><strong>CacheControl</strong></a> is a port of the caching algorithms in <a href="http://code.google.com/p/httplib2/" target="_blank" rel="external">httplib2</a> for use with the <a href="http://docs.python-requests.org/" target="_blank" rel="external">requests</a> session object.</p><p>It was written because httplib2’s better support for caching is often mitigated by its lack of thread-safety. The same is true of requests in terms of caching.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Python爬虫较为常用的较冷门的Packages&quot;&gt;&lt;a href=&quot;#Python爬虫较为常用的较冷门的Packages&quot; class=&quot;headerlink&quot; title=&quot;Python爬虫较为常用的较冷门的Packages&quot;&gt;&lt;/a&gt;Python爬虫较为常
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Regex Syntax</title>
@@ -467,29 +490,6 @@
       
         &lt;p&gt;该解决方案已经在Ubuntu中验证成功！&lt;/p&gt;
 &lt;p&gt;For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a fire
-      
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pip 使用方法简要</title>
-    <link href="http://yoursite.com/2017/11/19/Pip-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E8%A6%81/"/>
-    <id>http://yoursite.com/2017/11/19/Pip-使用方法简要/</id>
-    <published>2017-11-19T13:38:11.000Z</published>
-    <updated>2017-11-19T13:39:55.450Z</updated>
-    
-    <content type="html"><![CDATA[<p>You can install, upgrade, and remove packages using a program called <strong>pip</strong>. By default <code>pip</code> will install packages from the Python Package Index, <a href="&lt;https://pypi.python.org/pypi">&lt;https://pypi.python.org/pypi</a>&gt;. You can browse the Python Package Index by going to it in your web browser, or you can use <code>pip</code>’s limited search feature:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip search astronomy</div><div class="line">skyfield               - Elegant astronomy for Python</div><div class="line">gary                   - Galactic astronomy and gravitational dynamics.</div><div class="line">novas                  - The United States Naval Observatory NOVAS astronomy library</div><div class="line">astroobs               - Provides astronomy ephemeris to plan telescope observations</div><div class="line">PyAstronomy            - A collection of astronomy related tools for Python.</div><div class="line">...</div></pre></td></tr></table></figure><p><code>pip</code> has a number of subcommands: “search”, “install”, “uninstall”, “freeze”, etc. (Consult the <a href="../installing/index.html#installing-index">Installing Python Modules</a> guide for complete documentation for <code>pip</code>.)</p><p>You can install the latest version of a package by specifying a package’s name:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip install novas</div><div class="line">Collecting novas</div><div class="line">  Downloading novas-3.1.1.3.tar.gz (136kB)</div><div class="line">Installing collected packages: novas</div><div class="line">  Running setup.py install for novas</div><div class="line">Successfully installed novas-3.1.1.3</div></pre></td></tr></table></figure><p>You can also install a specific version of a package by giving the package name followed by <code>==</code> and the version number:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip install requests==2.6.0</div><div class="line">Collecting requests==2.6.0</div><div class="line">  Using cached requests-2.6.0-py2.py3-none-any.whl</div><div class="line">Installing collected packages: requests</div><div class="line">Successfully installed requests-2.6.0</div></pre></td></tr></table></figure><p>If you re-run this command, <code>pip</code> will notice that the requested version is already installed and do nothing. You can supply a different version number to get that version, or you can run <code>pip install --upgrade</code> to upgrade the package to the latest version:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip install --upgrade requests</div><div class="line">Collecting requests</div><div class="line">Installing collected packages: requests</div><div class="line">  Found existing installation: requests 2.6.0</div><div class="line">    Uninstalling requests-2.6.0:</div><div class="line">      Successfully uninstalled requests-2.6.0</div><div class="line">Successfully installed requests-2.7.0</div></pre></td></tr></table></figure><p><code>pip uninstall</code> followed by one or more package names will remove the packages from the virtual environment.</p><p><code>pip show</code> will display information about a particular package:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip show requests</div><div class="line">---</div><div class="line">Metadata-Version: 2.0</div><div class="line">Name: requests</div><div class="line">Version: 2.7.0</div><div class="line">Summary: Python HTTP for Humans.</div><div class="line">Home-page: http://python-requests.org</div><div class="line">Author: Kenneth Reitz</div><div class="line">Author-email: me@kennethreitz.com</div><div class="line">License: Apache 2.0</div><div class="line">Location: /Users/akuchling/envs/tutorial-env/lib/python3.4/site-packages</div><div class="line">Requires:</div></pre></td></tr></table></figure><p><code>pip list</code> will display all of the packages installed in the virtual environment:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip list</div><div class="line">novas (3.1.1.3)</div><div class="line">numpy (1.9.2)</div><div class="line">pip (7.0.3)</div><div class="line">requests (2.7.0)</div><div class="line">setuptools (16.0)</div></pre></td></tr></table></figure><p><code>pip freeze</code> will produce a similar list of the installed packages, but the output uses the format that <code>pip install</code> expects. A common convention is to put this list in a <code>requirements.txt</code> file:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip freeze &gt; requirements.txt</div><div class="line">(tutorial-env) $ cat requirements.txt</div><div class="line">novas==3.1.1.3</div><div class="line">numpy==1.9.2</div><div class="line">requests==2.7.0</div></pre></td></tr></table></figure><p>The <code>requirements.txt</code> can then be committed to version control and shipped as part of an application. Users can then install all the necessary packages with <code>install -r</code>:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(tutorial-env) $ pip install -r requirements.txt</div><div class="line">Collecting novas==3.1.1.3 (from -r requirements.txt (line 1))</div><div class="line">  ...</div><div class="line">Collecting numpy==1.9.2 (from -r requirements.txt (line 2))</div><div class="line">  ...</div><div class="line">Collecting requests==2.7.0 (from -r requirements.txt (line 3))</div><div class="line">  ...</div><div class="line">Installing collected packages: novas, numpy, requests</div><div class="line">  Running setup.py install for novas</div><div class="line">Successfully installed novas-3.1.1.3 numpy-1.9.2 requests-2.7.0</div></pre></td></tr></table></figure><p><code>pip</code> has many more options. Consult the <a href="../installing/index.html#installing-index">Installing Python Modules</a> guide for complete documentation for <code>pip</code>. When you’ve written a package and want to make it available on the Python Package Index, consult the <a href="../distributing/index.html#distributing-index">Distributing Python Modules</a> guide.</p><p><a href="https://docs.python.org/3.6/tutorial/venv.html#managing-packages-with-pip" target="_blank" rel="external">From Python Tutorial</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;You can install, upgrade, and remove packages using a program called &lt;strong&gt;pip&lt;/strong&gt;. By default &lt;code&gt;pip&lt;/code&gt; will install packa
       
     
     </summary>
