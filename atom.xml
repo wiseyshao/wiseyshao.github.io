@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-11T14:14:54.293Z</updated>
+  <updated>2018-01-13T17:12:23.282Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSV Files</title>
+    <link href="http://yoursite.com/2018/01/14/CSV-files/"/>
+    <id>http://yoursite.com/2018/01/14/CSV-files/</id>
+    <published>2018-01-13T16:35:07.000Z</published>
+    <updated>2018-01-13T17:12:23.282Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="csv-reader-csvfile-dialect-’excel’-fmtparams"><a href="#csv-reader-csvfile-dialect-’excel’-fmtparams" class="headerlink" title="csv.reader(csvfile, dialect=’excel’, *\fmtparams*)"></a><code>csv.reader</code>(<em>csvfile</em>, <em>dialect=’excel’</em>, <em>*\</em>fmtparams*)</h3><p>If <em>csvfile</em> is a file object, it should be opened with <code>newline=&#39;&#39;</code>.</p><p>A short usage example:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">with</span> open(<span class="string">'eggs.csv'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> csvfile:</div><div class="line">    spamreader = csv.reader(csvfile, delimiter=<span class="string">' '</span>, quotechar=<span class="string">'|'</span>)</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> spamreader:</div><div class="line">        print(<span class="string">', '</span>.join(row))</div></pre></td></tr></table></figure><h3 id="csv-writer-csvfile-dialect-’excel’-fmtparams"><a href="#csv-writer-csvfile-dialect-’excel’-fmtparams" class="headerlink" title="csv.writer(csvfile, dialect=’excel’, *\fmtparams*)"></a><code>csv.writer</code>(<em>csvfile</em>, <em>dialect=’excel’</em>, <em>*\</em>fmtparams*)</h3><p>If <em>csvfile</em> is a file object, it should be opened with<code>newline=&#39;&#39;</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">with</span> open(<span class="string">'eggs.csv'</span>, <span class="string">'w'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> csvfile:</div><div class="line">    spamwriter = csv.writer(csvfile, delimiter=<span class="string">' '</span>,</div><div class="line">                            quotechar=<span class="string">'|'</span>, quoting=csv.QUOTE_MINIMAL)</div><div class="line">    spamwriter.writerow([<span class="string">'Spam'</span>] * <span class="number">5</span> + [<span class="string">'Baked Beans'</span>])</div><div class="line">    spamwriter.writerow([<span class="string">'Spam'</span>, <span class="string">'Lovely Spam'</span>, <span class="string">'Wonderful Spam'</span>])</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;csv-reader-csvfile-dialect-’excel’-fmtparams&quot;&gt;&lt;a href=&quot;#csv-reader-csvfile-dialect-’excel’-fmtparams&quot; class=&quot;headerlink&quot; title=&quot;csv.
+      
+    
+    </summary>
+    
+    
+      <category term="Python, CSV" scheme="http://yoursite.com/tags/Python-CSV/"/>
+    
+  </entry>
   
   <entry>
     <title>Python爬虫较为常用packages</title>
@@ -472,30 +495,6 @@
     
     
       <category term="CSS, Python, CSS Selectors" scheme="http://yoursite.com/tags/CSS-Python-CSS-Selectors/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Solved Problems About Phantomjs</title>
-    <link href="http://yoursite.com/2017/12/12/Solved-problems-about-phantomjs/"/>
-    <id>http://yoursite.com/2017/12/12/Solved-problems-about-phantomjs/</id>
-    <published>2017-12-12T04:06:20.000Z</published>
-    <updated>2017-12-12T06:55:45.972Z</updated>
-    
-    <content type="html"><![CDATA[<p>该解决方案已经在Ubuntu中验证成功！</p><p>For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a firewall, you’ll get <code>WebDriverException(&quot;Can not connect to GhostDriver&quot;)</code>.</p><p>To fix:</p><ol><li>Open a port.</li></ol><p><code>sudo iptables -A INPUT -s 127.0.0.1 -p tcp --dport 65000 -j ACCEPT</code></p><ol><li>Create a PhantomJS driver that uses that port</li></ol><p><code>driver = webdriver.PhantomJS(executable_path=&#39;/usr/local/bin/phantomjs&#39;, port=65000)</code></p><hr><p>但以上解决方法不足以解决Mac出现的问题，即：Cannot connect the service /usr/local/bin/phantomjs.</p><p>那么如何解决呢？</p><p>经过花费近四五个小时的时间进行搜索、尝试、在搜索、再尝试。。。。。，最终确定问题也许并非出在phantomjs上，而是selenium。使用 <code>pip check selenium</code> 查到缺少一个必需的模块 <code>tornado</code>，于是 <code>pip install tornado</code> ,再次尝试，问题解决。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;该解决方案已经在Ubuntu中验证成功！&lt;/p&gt;
-&lt;p&gt;For me, this was a firewall issue. Phantom requires an open port to connect. If the port is blocked by a fire
-      
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
